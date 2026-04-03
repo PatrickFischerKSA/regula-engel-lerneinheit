@@ -876,6 +876,327 @@ const scenarios = [
   },
 ];
 
+const sourceAnalysisTasks = {
+  memoiren: {
+    question: "Was macht die Memoiren als Quelle besonders ergiebig und zugleich heikel?",
+    placeholder: "Formuliere 3 bis 5 Sätze zu Quellenwert und Quellenkritik.",
+    criteria: [
+      {
+        label: "Selbstzeugnis und Nähe",
+        keywords: ["selbstzeugnis", "ich", "erlebnis", "naehe", "nähe", "augenzeugin", "innensicht", "erfahrung"],
+      },
+      {
+        label: "Dramatisierung oder Selbstinszenierung",
+        keywords: ["inszenierung", "dramatisierung", "selbstdarstellung", "stilisierung", "ueberzeichnung", "überzeichnung"],
+      },
+      {
+        label: "Vergleich mit anderen Quellen",
+        keywords: ["vergleichen", "andere quellen", "quellenkritik", "abgleichen", "lexikon", "museum", "journalismus"],
+      },
+    ],
+    feedbackStrong:
+      "Das ist eine starke Quellenanalyse: Du erkennst die Memoiren als dichte Innensicht und hältst zugleich ihre Selbstinszenierung und den Abgleich mit anderen Quellen fest.",
+    feedbackMedium:
+      "Das trägt schon gut. Noch überzeugender wird es, wenn du Erlebnisnähe und Inszenierung ausdrücklich zusammendenkst.",
+    feedbackWeak:
+      "Hier fehlt noch der doppelte Blick: Memoiren liefern Nähe, aber sie sind keine neutrale Abschrift der Wirklichkeit.",
+    emptyPrompt:
+      "Nützlich sind hier drei Punkte: Selbstzeugnis, mögliche Dramatisierung und der Vergleich mit anderen Quellentypen.",
+  },
+  lexikon: {
+    question: "Welchen Nutzen hat ein Lexikoneintrag, und was kann er allein gerade nicht leisten?",
+    placeholder: "Erkläre in 2 bis 4 Sätzen Stärken und Grenzen des HLS-Eintrags.",
+    criteria: [
+      {
+        label: "Fakten und Orientierung",
+        keywords: ["daten", "fakten", "ueberblick", "überblick", "orientierung", "biografisch", "eckdaten"],
+      },
+      {
+        label: "Verdichtung und Knappheit",
+        keywords: ["kurz", "knapp", "verdichtet", "zusammenfassung", "kompakt"],
+      },
+      {
+        label: "Grenze ohne Erfahrungsnähe",
+        keywords: ["keine innensicht", "keine emotion", "keine erfahrung", "ergänzen", "memoiren", "andere quellen"],
+      },
+    ],
+    feedbackStrong:
+      "Das ist historisch überzeugend: Du nutzt den Lexikoneintrag als verlässlichen Rahmen, ohne seine knappe Form mit vollständiger Erklärung zu verwechseln.",
+    feedbackMedium:
+      "Ein guter Ansatz. Noch stärker wäre, wenn du klar sagst, dass das Lexikon Orientierung gibt, aber keine Erfahrungsnähe bietet.",
+    feedbackWeak:
+      "Der Kern fehlt noch etwas. Ein Lexikoneintrag ordnet und verdichtet, ersetzt aber keine dichte Quellenarbeit.",
+    emptyPrompt:
+      "Hilfreich sind hier Faktenüberblick, knappe Verdichtung und die Grenze gegenüber Memoiren oder anderen Quellen.",
+  },
+  journalismus: {
+    question: "Wie rahmen moderne Medienbeiträge Regula Engel-Egli für heutige Leserinnen und Leser?",
+    placeholder: "Achte auf Vermittlung, Zuspitzung und Nutzen im Unterricht.",
+    criteria: [
+      {
+        label: "Heutige Vermittlung",
+        keywords: ["heute", "modern", "vermitteln", "zugang", "leser", "publikum", "journalistisch"],
+      },
+      {
+        label: "Zuspitzung oder Schlagwortlogik",
+        keywords: ["amazone", "titel", "zuspitzung", "zugespitzt", "schlagwort", "heroisch", "spektakulär", "spektakulaer"],
+      },
+      {
+        label: "Didaktischer Nutzen mit Vorsicht",
+        keywords: ["unterricht", "einstieg", "nutzen", "quellenkritik", "kritisch", "einordnung"],
+      },
+    ],
+    feedbackStrong:
+      "Das ist eine reife Antwort: Du erkennst Medienbeiträge als guten Zugang, benennst aber auch ihre Tendenz zur Zuspitzung.",
+    feedbackMedium:
+      "Das geht schon in die richtige Richtung. Ergänze noch klarer, dass mediale Titel Aufmerksamkeit erzeugen, aber auch vereinfachen können.",
+    feedbackWeak:
+      "Noch zu allgemein. Wichtig ist hier der Spagat zwischen Zugänglichkeit und journalistischer Zuspitzung.",
+    emptyPrompt:
+      "Wichtige Aspekte sind heutige Vermittlung, Schlagwörter wie «Amazone» und der didaktische Nutzen mit Vorsicht.",
+  },
+  museum: {
+    question: "Was macht eine Museumsdarstellung mit der historischen Figur Regula Engel-Egli?",
+    placeholder: "Erkläre Auswahl, Inszenierung und regionale Perspektive.",
+    criteria: [
+      {
+        label: "Auswahl und Verdichtung",
+        keywords: ["auswahl", "verdichtung", "zuspitzung", "erzählen", "ausstellung", "kuratiert"],
+      },
+      {
+        label: "Visuelle oder narrative Inszenierung",
+        keywords: ["bild", "uniform", "inszenierung", "darstellung", "sichtbar", "figur"],
+      },
+      {
+        label: "Regionale Erinnerung",
+        keywords: ["bünden", "regional", "erinnerung", "museum", "öffentlichkeit", "public history"],
+      },
+    ],
+    feedbackStrong:
+      "Das trifft den Kern: Du liest das Museum nicht als neutrale Ablage, sondern als kuratierte und regional geprägte Erinnerungserzählung.",
+    feedbackMedium:
+      "Schon gut. Noch präziser wäre, wenn du neben der Inszenierung auch die regionale Perspektive ausdrücklich benennst.",
+    feedbackWeak:
+      "Hier fehlt noch der Blick auf das Kuratieren. Museen zeigen Geschichte immer durch Auswahl und Inszenierung.",
+    emptyPrompt:
+      "Denk an drei Punkte: kuratierte Auswahl, visuelle Inszenierung und regionale Erinnerungskultur.",
+  },
+  ueberlieferung: {
+    question: "Warum ist die digitale Überlieferung für die Arbeit mit Regula Engel-Egli historisch wichtig?",
+    placeholder: "Verbinde Edition, Zugänglichkeit und Nachleben.",
+    criteria: [
+      {
+        label: "Edition und Digitalisierung",
+        keywords: ["digital", "digitalisierung", "edition", "e-rara", "zugang", "online"],
+      },
+      {
+        label: "Nachleben und Rezeption",
+        keywords: ["nachleben", "rezeption", "weiterleben", "bibliografie", "viceversa", "publiziert"],
+      },
+      {
+        label: "Forschung und Unterricht",
+        keywords: ["forschung", "unterricht", "arbeiten", "vergleich", "verfügbar", "zugänglich"],
+      },
+    ],
+    feedbackStrong:
+      "Das ist überzeugend: Du machst deutlich, dass Überlieferung nicht nur Bewahrung, sondern aktive Wiederverfügbarkeit und kulturelles Nachleben bedeutet.",
+    feedbackMedium:
+      "Ein guter Anfang. Noch stärker wäre, wenn du neben der Digitalisierung auch das bibliografische Nachleben der Figur benennst.",
+    feedbackWeak:
+      "Noch zu schmal. Hier geht es nicht nur um online verfügbare Dateien, sondern um Edition, Nachleben und neue Nutzungskontexte.",
+    emptyPrompt:
+      "Hilfreich sind hier Digitalisierung, bibliografisches Nachleben und Nutzen für Forschung oder Unterricht.",
+  },
+};
+
+const contextAnalysisTasks = {
+  soldwesen: {
+    question: "Warum verändert der Kontext des Schweizer Soldwesens den Blick auf Regula Engel-Eglis Biografie?",
+    placeholder: "Formuliere eine kurze historische Einordnung mit 2 bis 4 Sätzen.",
+    criteria: [
+      {
+        label: "Fremddienstsystem",
+        keywords: ["soldwesen", "fremddienst", "fremde dienste", "soeldner", "söldner", "regiment"],
+      },
+      {
+        label: "Migration und Mobilität",
+        keywords: ["migration", "mobilitaet", "mobilität", "unterwegs", "transnational", "frankreich"],
+      },
+      {
+        label: "Ent-Exotisierung des Lebenswegs",
+        keywords: ["nicht einzigartig", "nicht exotisch", "kontext", "einbettung", "sozialgeschichtlich", "rahmen"],
+      },
+    ],
+    feedbackStrong:
+      "Das ist historisch tragfähig: Du zeigst, dass ihr Lebensweg nicht isoliert, sondern im schweizerischen Fremddienstsystem verankert war.",
+    feedbackMedium:
+      "Schon gut. Noch stärker wird die Antwort, wenn du klar sagst, dass der Kontext ihren Lebensweg weniger exotisch und stärker sozialgeschichtlich verständlich macht.",
+    feedbackWeak:
+      "Im Moment fehlt die eigentliche Einbettung. Das Soldwesen erklärt die transnationale Bewegung der Familie.",
+    emptyPrompt:
+      "Wichtig sind Fremddienst, Mobilität und die Einordnung ihres Lebenswegs in einen breiteren historischen Rahmen.",
+  },
+  frauen: {
+    question: "Warum hilft der Kontext «Frauen im Krieg», Regula Engel-Egli genauer zu verstehen?",
+    placeholder: "Zeige, warum sie besonders ist, aber nicht völlig isoliert.",
+    criteria: [
+      {
+        label: "Frauen im Kriegsraum",
+        keywords: ["frauen", "krieg", "tross", "versorgung", "cantin", "arbeit", "präsenz", "praesenz"],
+      },
+      {
+        label: "Nicht völlig singulär",
+        keywords: ["nicht allein", "nicht isoliert", "nicht einzigartig", "kontinuum", "breiter"],
+      },
+      {
+        label: "Amazone als Überzeichnung",
+        keywords: ["amazone", "ueberzeichnung", "überzeichnung", "zuspitzung", "ausnahme"],
+      },
+    ],
+    feedbackStrong:
+      "Das ist differenziert: Du machst Regula Engel-Egli als besondere Figur sichtbar, ohne sie aus der allgemeinen weiblichen Kriegspräsenz herauszulösen.",
+    feedbackMedium:
+      "Das trägt schon. Noch besser wäre, wenn du deutlicher sagst, dass der Begriff «Amazone» das Außergewöhnliche zusätzlich zuspitzt.",
+    feedbackWeak:
+      "Hier fehlt noch der Vergleichsrahmen. Historisch wichtig ist gerade, dass Frauen im Kriegsraum präsenter waren, als der Ausnahmebegriff vermuten lässt.",
+    emptyPrompt:
+      "Denk an weibliche Arbeit im Kriegsraum, ihre besondere, aber nicht isolierte Rolle und die Zuspitzung durch «Amazone».",
+  },
+  napoleon: {
+    question: "Wie greifen in Regula Engel-Eglis Leben Napoleon und Familiengeschichte ineinander?",
+    placeholder: "Verbinde politische Großereignisse mit biografischen Folgen.",
+    criteria: [
+      {
+        label: "Aufstieg und Sturz Napoleons",
+        keywords: ["napoleon", "aufstieg", "sturz", "elba", "waterloo", "1814", "1815"],
+      },
+      {
+        label: "Verzahnung von Politik und Biografie",
+        keywords: ["biografie", "familie", "persönlich", "persoenlich", "machtpolitik", "verzahnung", "verbunden"],
+      },
+      {
+        label: "Wendepunkte als Lebensbruch",
+        keywords: ["wendepunkt", "bruch", "verlust", "zusammenbruch", "krieg", "lebensweg"],
+      },
+    ],
+    feedbackStrong:
+      "Das ist eine starke Einordnung: Du machst sichtbar, dass Napoleons Machtverlauf nicht Hintergrund, sondern Strukturprinzip ihrer eigenen Lebensgeschichte ist.",
+    feedbackMedium:
+      "Schon tragfähig. Noch präziser wäre, wenn du Elba oder Waterloo als konkrete Knotenpunkte zwischen Politik und Privatleben benennst.",
+    feedbackWeak:
+      "Noch zu allgemein. Hier geht es gerade darum, große Politik und Familienbiografie miteinander zu verschränken.",
+    emptyPrompt:
+      "Wichtige Begriffe sind Napoleon, Elba oder Waterloo, Familie und biografischer Bruch.",
+  },
+  erinnerung: {
+    question: "Warum ist Erinnerungskultur für Regula Engel-Egli nicht nur Nachgeschichte, sondern Teil ihres historischen Bildes?",
+    placeholder: "Erkläre in 2 bis 4 Sätzen Auswahl, Medien und spätere Deutung.",
+    criteria: [
+      {
+        label: "Spätere Auswahl und Erzählung",
+        keywords: ["auswahl", "später", "spaeter", "erzählung", "deutung", "nachgeschichte"],
+      },
+      {
+        label: "Medien und Museen",
+        keywords: ["museum", "medien", "srf", "nationalmuseum", "öffentlichkeit", "oeffentlichkeit"],
+      },
+      {
+        label: "Nicht neutrales Bild",
+        keywords: ["nicht neutral", "sichtbar", "rezeption", "erinnerungskultur", "rahmung", "inszenierung"],
+      },
+    ],
+    feedbackStrong:
+      "Das ist überzeugend: Du verstehst ihr Bild nicht als bloße Überlieferung, sondern als Ergebnis späterer Auswahl, Rahmung und Öffentlichkeit.",
+    feedbackMedium:
+      "Ein guter Ansatz. Noch stärker wäre, wenn du konkrete Akteure wie Medien oder Museum ausdrücklich nennst.",
+    feedbackWeak:
+      "Hier fehlt noch der Gedanke, dass historische Figuren erst durch spätere Auswahl und Erzählung sichtbar bleiben.",
+    emptyPrompt:
+      "Hilfreich sind hier spätere Auswahl, Medien oder Museen und die Einsicht, dass ihr Bild nicht neutral entstanden ist.",
+  },
+};
+
+const scenarioAnalysisTasks = {
+  s1: {
+    question: "Formuliere selbst eine tragfähige Regel dafür, wie man Regula Engel-Eglis Memoiren historisch lesen sollte.",
+    placeholder: "Schreibe eine kurze Deutung in 2 bis 4 Sätzen.",
+    criteria: [
+      {
+        label: "Selbstzeugnis ernst nehmen",
+        keywords: ["selbstzeugnis", "memoiren", "erfahrung", "nähe", "naehe", "innensicht"],
+      },
+      {
+        label: "Mit anderen Quellen vergleichen",
+        keywords: ["vergleichen", "andere quellen", "abgleichen", "quellenkritik", "lexikon", "museum"],
+      },
+      {
+        label: "Inszenierung mitdenken",
+        keywords: ["inszenierung", "dramatisierung", "selbstdarstellung", "stilisierung"],
+      },
+    ],
+    feedbackStrong:
+      "Das ist eine historisch belastbare Regel: Du vermeidest sowohl blinden Glauben als auch pauschales Misstrauen.",
+    feedbackMedium:
+      "Schon gut. Noch stärker wird die Deutung, wenn du ausdrücklich sagst, dass Nähe und Selbstinszenierung gleichzeitig gelesen werden müssen.",
+    feedbackWeak:
+      "Hier fehlt noch die Balance. Gute Quellenarbeit nimmt Memoiren ernst, ohne sie wörtlich mit Wahrheit gleichzusetzen.",
+    emptyPrompt:
+      "Nützlich sind hier Selbstzeugnis, Vergleich mit anderen Quellen und die Idee von Inszenierung oder Dramatisierung.",
+  },
+  s2: {
+    question: "Deute selbst den Ausdruck «Schweizer Amazone» und erkläre seine Chancen und Risiken.",
+    placeholder: "Formuliere eine begründete Deutung in 2 bis 4 Sätzen.",
+    criteria: [
+      {
+        label: "Sichtbarkeit oder Aufmerksamkeit",
+        keywords: ["sichtbar", "aufmerksamkeit", "interesse", "zugang", "prägnant", "praegnant"],
+      },
+      {
+        label: "Verkürzung oder Heroisierung",
+        keywords: ["verkürzung", "verkuerzung", "heroisierung", "zuspitzung", "überzeichnung", "ueberzeichnung"],
+      },
+      {
+        label: "Erinnerungskulturelle Deutung",
+        keywords: ["erinnerung", "rezeption", "später", "spaeter", "deutung", "nachleben"],
+      },
+    ],
+    feedbackStrong:
+      "Das ist differenziert: Du liest das Etikett als wirkungsvolles Schlagwort und zugleich als problematische spätere Rahmung.",
+    feedbackMedium:
+      "Ein guter Ansatz. Noch stärker wäre, wenn du neben der Zuspitzung auch den erinnerungskulturellen Charakter des Begriffs benennst.",
+    feedbackWeak:
+      "Noch zu einseitig. Der Begriff ist weder bloß hilfreich noch bloß falsch, sondern gerade wegen seiner Ambivalenz analytisch interessant.",
+    emptyPrompt:
+      "Denke an Sichtbarkeit, Heroisierung oder Verkürzung und an spätere Erinnerungskultur.",
+  },
+  s3: {
+    question: "Begründe selbst, warum die Publikation ihrer Lebensgeschichte nach 1815 historisch plausibel ist.",
+    placeholder: "Verbinde soziale Lage, Schreibabsicht und Selbstdeutung.",
+    criteria: [
+      {
+        label: "Prekäre Lage oder Armut",
+        keywords: ["not", "armut", "prekär", "prekaer", "lebensunterhalt", "geld", "existenz"],
+      },
+      {
+        label: "Publikation als Strategie",
+        keywords: ["publikation", "veröffentlichung", "veroeffentlichung", "strategie", "überleben", "ueberleben", "hilfe"],
+      },
+      {
+        label: "Eigene Geschichte erzählbar machen",
+        keywords: ["lebensgeschichte", "erinnerung", "selbstdeutung", "erzählen", "sichtbarkeit", "autorin"],
+      },
+    ],
+    feedbackStrong:
+      "Das ist überzeugend: Du verbindest soziale Not, Veröffentlichung und bewusste Selbstdeutung zu einer historisch plausiblen Gesamtdeutung.",
+    feedbackMedium:
+      "Schon gut. Noch stärker wird die Antwort, wenn du neben der wirtschaftlichen Not ausdrücklich den erzählerischen Selbstentwurf nennst.",
+    feedbackWeak:
+      "Hier fehlt noch der soziale und publizistische Zusammenhang. Die Publikation war nicht nur Erinnern, sondern auch Strategie.",
+    emptyPrompt:
+      "Wichtige Punkte sind prekäre Lage, Veröffentlichung als Strategie und ihre eigene Lebensgeschichte als Erzählung.",
+  },
+};
+
 const quizQuestions = [
   {
     id: "q1",
@@ -1023,11 +1344,14 @@ const initialState = {
   routeViewSelections: {},
   visitedRoutes: [routeSets[0].id],
   visitedLenses: [],
+  lensResponses: {},
   activeLens: sourceLenses[0].id,
   visitedContexts: [],
+  contextResponses: {},
   activeContext: contextModules[0].id,
   decisions: {},
   activeScenario: scenarios[0].id,
+  scenarioResponses: {},
   insights: [],
   reflectionMain: "",
   reflectionTransfer: "",
@@ -1143,9 +1467,9 @@ function moduleDoneFlags() {
   const warmupDone = Object.keys(state.warmupAnswers).length === warmupItems.length;
   const timelineDone = state.visitedTimeline.length >= 6;
   const routeDone = state.visitedRoutes.length === routeSets.length;
-  const sourceDone = state.visitedLenses.length === sourceLenses.length;
-  const contextDone = state.visitedContexts.length === contextModules.length;
-  const decisionsDone = Object.keys(state.decisions).length === scenarios.length;
+  const sourceDone = sourceLenses.every((lens) => hasTextResponse(state.lensResponses[lens.id]));
+  const contextDone = contextModules.every((item) => hasTextResponse(state.contextResponses[item.id]));
+  const decisionsDone = scenarios.every((scenario) => hasTextResponse(state.scenarioResponses[scenario.id]));
   const quizDone = Number.isInteger(state.quizScore);
 
   return {
@@ -1157,6 +1481,10 @@ function moduleDoneFlags() {
     decisionsDone,
     quizDone,
   };
+}
+
+function hasTextResponse(value) {
+  return typeof value === "string" && value.trim().length > 0;
 }
 
 function updateDashboard() {
@@ -1613,6 +1941,8 @@ function renderSources() {
   const switcher = document.getElementById("lens-switch");
   const stage = document.getElementById("source-cards");
   const activeLens = sourceLenses.find((lens) => lens.id === state.activeLens) || sourceLenses[0];
+  const task = sourceAnalysisTasks[activeLens.id];
+  const answer = typeof state.lensResponses[activeLens.id] === "string" ? state.lensResponses[activeLens.id] : "";
 
   switcher.innerHTML = sourceLenses
     .map(
@@ -1655,7 +1985,27 @@ function renderSources() {
         `
       )
       .join("")}
+    <article class="source-card source-workspace">
+      <div>
+        <p class="card-kicker">Arbeitsauftrag</p>
+        <h3>${task.question}</h3>
+      </div>
+      <label class="analysis-prompt" for="source-response">${task.placeholder}</label>
+      <textarea
+        class="analysis-answer"
+        id="source-response"
+        rows="5"
+        data-source-answer="${activeLens.id}"
+        placeholder="${task.placeholder}"
+      >${escapeHtml(answer)}</textarea>
+      <div class="analysis-live-feedback" id="source-feedback-${activeLens.id}"></div>
+      <div class="insight-actions">
+        <button class="btn ghost" type="button" data-insight="${escapeHtml(activeLens.cards[0].insight)}">Merksatz sichern</button>
+      </div>
+    </article>
   `;
+
+  updateSourceLiveFeedback(activeLens.id);
 }
 
 function renderContext() {
@@ -1663,6 +2013,9 @@ function renderContext() {
   const stage = document.getElementById("context-stage");
   const activeContext =
     contextModules.find((item) => item.id === state.activeContext) || contextModules[0];
+  const task = contextAnalysisTasks[activeContext.id];
+  const answer =
+    typeof state.contextResponses[activeContext.id] === "string" ? state.contextResponses[activeContext.id] : "";
 
   switcher.innerHTML = contextModules
     .map(
@@ -1696,14 +2049,33 @@ function renderContext() {
         <button class="btn ghost" type="button" data-insight="${escapeHtml(activeContext.insight)}">Merksatz sichern</button>
       </div>
     </article>
+    <article class="context-card context-workspace">
+      <div>
+        <p class="card-kicker">Transferaufgabe</p>
+        <h3>${task.question}</h3>
+      </div>
+      <label class="analysis-prompt" for="context-response">${task.placeholder}</label>
+      <textarea
+        class="analysis-answer"
+        id="context-response"
+        rows="5"
+        data-context-answer="${activeContext.id}"
+        placeholder="${task.placeholder}"
+      >${escapeHtml(answer)}</textarea>
+      <div class="analysis-live-feedback" id="context-feedback-${activeContext.id}"></div>
+    </article>
   `;
+
+  updateContextLiveFeedback(activeContext.id);
 }
 
 function renderScenarios() {
   const switcher = document.getElementById("scenario-tabs");
   const stage = document.getElementById("scenario-stage");
   const activeScenario = scenarios.find((item) => item.id === state.activeScenario) || scenarios[0];
-  const selectedChoice = state.decisions[activeScenario.id];
+  const task = scenarioAnalysisTasks[activeScenario.id];
+  const answer =
+    typeof state.scenarioResponses[activeScenario.id] === "string" ? state.scenarioResponses[activeScenario.id] : "";
 
   switcher.innerHTML = scenarios
     .map(
@@ -1722,24 +2094,34 @@ function renderScenarios() {
         <h3>${activeScenario.title}</h3>
         <p>${activeScenario.prompt}</p>
       </div>
-      ${activeScenario.choices
-        .map((choice) => {
-          const isSelected = selectedChoice === choice.id;
-          return `
-            <div class="scenario-choice ${selectedChoice ? "is-answered" : ""}">
-              <button class="choice-btn ${isSelected ? "is-selected" : ""}" type="button" data-scenario-choice="${activeScenario.id}" data-choice="${choice.id}">
-                ${choice.label}
-              </button>
-              ${isSelected ? `<div class="scenario-outcome">${choice.outcome}</div>` : ""}
-            </div>
-          `;
-        })
-        .join("")}
+      <div class="scenario-reference-list">
+        ${activeScenario.choices
+          .map(
+            (choice, index) => `
+              <div class="scenario-reference">
+                <strong>Orientierung ${index + 1}</strong>
+                <p>${choice.label}</p>
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+      <label class="analysis-prompt" for="scenario-response">${task.placeholder}</label>
+      <textarea
+        class="analysis-answer"
+        id="scenario-response"
+        rows="5"
+        data-scenario-answer="${activeScenario.id}"
+        placeholder="${task.placeholder}"
+      >${escapeHtml(answer)}</textarea>
+      <div class="analysis-live-feedback" id="scenario-feedback-${activeScenario.id}"></div>
       <div class="insight-actions">
         <button class="btn ghost" type="button" data-insight="${escapeHtml(bestScenarioInsight(activeScenario.id))}">Merksatz sichern</button>
       </div>
     </article>
   `;
+
+  updateScenarioLiveFeedback(activeScenario.id);
 }
 
 function bestScenarioInsight(id) {
@@ -1898,6 +2280,51 @@ function renderQuizLiveFeedbackMarkup(evaluation) {
     ${evaluation.matched.length ? `<p class="quiz-feedback-meta"><strong>Erkannt:</strong> ${evaluation.matched.join(", ")}</p>` : ""}
     ${evaluation.missing.length ? `<p class="quiz-feedback-meta"><strong>Noch sinnvoll:</strong> ${evaluation.missing.join(", ")}</p>` : ""}
   `;
+}
+
+function renderAnalysisFeedbackMarkup(evaluation) {
+  return `
+    <strong>${evaluation.title}</strong>
+    <p>${evaluation.message}</p>
+    ${evaluation.matched.length ? `<p class="quiz-feedback-meta"><strong>Erkannt:</strong> ${evaluation.matched.join(", ")}</p>` : ""}
+    ${evaluation.missing.length ? `<p class="quiz-feedback-meta"><strong>Noch sinnvoll:</strong> ${evaluation.missing.join(", ")}</p>` : ""}
+  `;
+}
+
+function updateSourceLiveFeedback(lensId) {
+  const task = sourceAnalysisTasks[lensId];
+  const feedback = document.getElementById(`source-feedback-${lensId}`);
+  if (!task || !feedback) {
+    return;
+  }
+
+  const evaluation = evaluateOpenAnswer(task, state.lensResponses[lensId]);
+  feedback.className = `analysis-live-feedback is-${evaluation.tone}`;
+  feedback.innerHTML = renderAnalysisFeedbackMarkup(evaluation);
+}
+
+function updateContextLiveFeedback(contextId) {
+  const task = contextAnalysisTasks[contextId];
+  const feedback = document.getElementById(`context-feedback-${contextId}`);
+  if (!task || !feedback) {
+    return;
+  }
+
+  const evaluation = evaluateOpenAnswer(task, state.contextResponses[contextId]);
+  feedback.className = `analysis-live-feedback is-${evaluation.tone}`;
+  feedback.innerHTML = renderAnalysisFeedbackMarkup(evaluation);
+}
+
+function updateScenarioLiveFeedback(scenarioId) {
+  const task = scenarioAnalysisTasks[scenarioId];
+  const feedback = document.getElementById(`scenario-feedback-${scenarioId}`);
+  if (!task || !feedback) {
+    return;
+  }
+
+  const evaluation = evaluateOpenAnswer(task, state.scenarioResponses[scenarioId]);
+  feedback.className = `analysis-live-feedback is-${evaluation.tone}`;
+  feedback.innerHTML = renderAnalysisFeedbackMarkup(evaluation);
 }
 
 function updateQuizLiveFeedback(questionId) {
@@ -2110,16 +2537,6 @@ document.addEventListener("click", (event) => {
     return;
   }
 
-  const choiceButton = event.target.closest("[data-scenario-choice]");
-  if (choiceButton) {
-    const scenarioId = choiceButton.dataset.scenarioChoice;
-    const choiceId = choiceButton.dataset.choice;
-    state.decisions[scenarioId] = choiceId;
-    renderScenarios();
-    saveState();
-    return;
-  }
-
   const insightButton = event.target.closest("[data-insight]");
   if (insightButton) {
     addInsight(insightButton.dataset.insight);
@@ -2143,6 +2560,30 @@ document.addEventListener("change", (event) => {
 });
 
 document.addEventListener("input", (event) => {
+  const sourceAnswer = event.target.closest("[data-source-answer]");
+  if (sourceAnswer) {
+    state.lensResponses[sourceAnswer.dataset.sourceAnswer] = sourceAnswer.value;
+    updateSourceLiveFeedback(sourceAnswer.dataset.sourceAnswer);
+    saveState();
+    return;
+  }
+
+  const contextAnswer = event.target.closest("[data-context-answer]");
+  if (contextAnswer) {
+    state.contextResponses[contextAnswer.dataset.contextAnswer] = contextAnswer.value;
+    updateContextLiveFeedback(contextAnswer.dataset.contextAnswer);
+    saveState();
+    return;
+  }
+
+  const scenarioAnswer = event.target.closest("[data-scenario-answer]");
+  if (scenarioAnswer) {
+    state.scenarioResponses[scenarioAnswer.dataset.scenarioAnswer] = scenarioAnswer.value;
+    updateScenarioLiveFeedback(scenarioAnswer.dataset.scenarioAnswer);
+    saveState();
+    return;
+  }
+
   const quizAnswer = event.target.closest("[data-quiz-answer]");
   if (!quizAnswer) {
     return;
