@@ -438,7 +438,7 @@ const routeSets = [
     insight:
       "Die Nachgeschichte ist selbst wieder eine Reiseroute und zeigt, wie unstet ihr Leben auch nach den Kriegen blieb.",
     googleAction: "map",
-    views: ["overview", "atlantic", "usaEast", "centralEurope", "swiss"],
+    views: ["usaEast", "overview", "atlantic", "centralEurope", "swiss"],
     sourceCheck:
       "Quellencheck: Die in dieser Einheit genutzten Texte stützen für die Amerika-Reise besonders New York und New Orleans. Wikipedia nennt New Orleans als Ort, an dem sie ihren Sohn Caspar sterbend fand; SRF nennt die Ankunft in New York nach 76 Tagen auf See. Houston ist in diesen Leitquellen nicht belegt.",
     stops: [
@@ -2020,8 +2020,17 @@ document.addEventListener("click", (event) => {
     const { route } = routeButton.dataset;
     state.activeRoute = route;
     const routeConfig = routeSets.find((item) => item.id === route);
-    if (routeConfig && !state.routeViewSelections[route]) {
-      state.routeViewSelections[route] = routeConfig.views[0];
+    if (routeConfig) {
+      if (!state.routeViewSelections[route]) {
+        state.routeViewSelections[route] = routeConfig.views[0];
+      }
+
+      if (
+        route === "amerika-rueckkehr" &&
+        (!state.routeViewSelections[route] || state.routeViewSelections[route] === "overview")
+      ) {
+        state.routeViewSelections[route] = "usaEast";
+      }
     }
     if (!state.visitedRoutes.includes(route)) {
       state.visitedRoutes.push(route);
