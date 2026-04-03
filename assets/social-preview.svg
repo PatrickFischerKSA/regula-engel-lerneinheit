@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Social Preview Regula Engel-Egli">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#efe3ce" />
+      <stop offset="55%" stop-color="#f8f1e6" />
+      <stop offset="100%" stop-color="#ead7ba" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffaf4" stop-opacity="0.96" />
+      <stop offset="100%" stop-color="#f3e3cc" stop-opacity="0.92" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1060" cy="95" r="150" fill="#1e3a4c" fill-opacity="0.08" />
+  <circle cx="120" cy="70" r="170" fill="#7b2f33" fill-opacity="0.08" />
+  <rect x="58" y="54" width="1084" height="522" rx="36" fill="url(#panel)" stroke="#1e3a4c" stroke-opacity="0.08" />
+
+  <text x="100" y="124" fill="#7b2f33" font-family="Avenir Next, Segoe UI, sans-serif" font-size="28" font-weight="800" letter-spacing="4">VOLLDIGITALE LERNEINHEIT</text>
+  <text x="100" y="228" fill="#1b2430" font-family="Palatino Linotype, Book Antiqua, serif" font-size="72" font-weight="700">Regula Engel-Egli:</text>
+  <text x="100" y="308" fill="#1b2430" font-family="Palatino Linotype, Book Antiqua, serif" font-size="72" font-weight="700">Zwischen Kindersegen,</text>
+  <text x="100" y="388" fill="#1b2430" font-family="Palatino Linotype, Book Antiqua, serif" font-size="72" font-weight="700">Krieg und Erinnerung</text>
+
+  <text x="100" y="458" fill="#5c6772" font-family="Avenir Next, Segoe UI, sans-serif" font-size="32">
+    Kartenraum, Quellen-Lab, Zeitleiste, historischer Kontext,
+  </text>
+  <text x="100" y="500" fill="#5c6772" font-family="Avenir Next, Segoe UI, sans-serif" font-size="32">
+    Deutungs-Labor, Quiz und Reflexion für GitHub Pages
+  </text>
+
+  <rect x="880" y="404" width="180" height="62" rx="31" fill="#1e3a4c" />
+  <text x="970" y="444" text-anchor="middle" fill="#fff8ee" font-family="Avenir Next, Segoe UI, sans-serif" font-size="26" font-weight="700">Kartenraum</text>
+
+  <rect x="860" y="154" width="220" height="170" rx="24" fill="#fffdf9" stroke="#1e3a4c" stroke-opacity="0.12" />
+  <path d="M900 286 L930 254 L971 272 L1012 208 L1046 228" fill="none" stroke="#7b2f33" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="900" cy="286" r="10" fill="#1e3a4c" />
+  <circle cx="930" cy="254" r="10" fill="#1e3a4c" />
+  <circle cx="971" cy="272" r="10" fill="#1e3a4c" />
+  <circle cx="1012" cy="208" r="10" fill="#1e3a4c" />
+  <circle cx="1046" cy="228" r="10" fill="#1e3a4c" />
+</svg>

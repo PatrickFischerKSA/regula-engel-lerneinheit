@@ -316,6 +316,7 @@ progress::-webkit-progress-value {
 }
 
 .section-intro,
+.teacher-panel,
 .module,
 .source-panel {
   padding: 24px;
@@ -326,6 +327,7 @@ progress::-webkit-progress-value {
 }
 
 .intro-grid,
+.teacher-grid,
 .reflection-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -333,6 +335,7 @@ progress::-webkit-progress-value {
 }
 
 .info-card,
+.teacher-card,
 .reflection-card,
 .source-card,
 .timeline-card,
@@ -348,6 +351,7 @@ progress::-webkit-progress-value {
 }
 
 .info-card p,
+.teacher-card p,
 .reflection-card p,
 .source-card p,
 .timeline-card p,
@@ -380,6 +384,13 @@ progress::-webkit-progress-value {
 
 .source-cards {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.teacher-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
 }
 
 .warmup-card {
@@ -881,6 +892,7 @@ textarea {
 @media (max-width: 1120px) {
   .hero,
   .intro-grid,
+  .teacher-grid,
   .reflection-grid,
   .route-layout,
   .source-cards,
@@ -897,6 +909,7 @@ textarea {
 
   .hero,
   .section-intro,
+  .teacher-panel,
   .module,
   .source-panel {
     padding: 18px;

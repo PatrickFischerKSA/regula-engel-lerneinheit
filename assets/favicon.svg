@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Regula Engel Lerneinheit">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a4c" />
+      <stop offset="100%" stop-color="#7b2f33" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)" />
+  <path d="M34 89V39h27c16 0 26 9 26 22 0 11-7 18-17 20l19 8v3H74l-18-9H48v9zm14-20h11c9 0 14-3 14-10s-5-10-14-10H48z" fill="#fff8ee" />
+  <circle cx="97" cy="34" r="10" fill="#c79a54" />
+</svg>

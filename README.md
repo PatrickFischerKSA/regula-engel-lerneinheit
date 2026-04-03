@@ -12,6 +12,7 @@ Repository: [PatrickFischerKSA/regula-engel-lerneinheit](https://github.com/Patr
 - eigenes Kartenmodul mit konkreten Schauplätzen und Reiserouten zwischen Schweiz, Europa, Mittelmeerraum und USA
 - datierte Stationskarten mit Ereigniszeilen und anklickbaren Detailfenstern zu den wichtigsten Vorkommnissen
 - zusätzliche Zoomstufen für Gesamtkarte, Schweiz, Mitteleuropa, Mittelmeer sowie Atlantik/USA
+- optimierte Startseite mit Lehrpersonen-Einstieg, Favicon und Social-Meta-Tags für GitHub Pages
 - Quellen-Lab mit Vergleich von Memoiren, Lexikon, Journalismus, Museum und Überlieferung
 - eigenes Modul zur historischen Einbettung:
   - Schweizer Soldwesen
