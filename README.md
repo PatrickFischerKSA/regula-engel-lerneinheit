@@ -57,14 +57,13 @@ Die Einheit arbeitet mit drei Leitgedanken:
 
 Für das Repository `PatrickFischerKSA/regula-engel-lerneinheit`:
 
-1. Repository nach GitHub pushen
-2. In GitHub `Settings` öffnen
-3. `Pages` auswählen
-4. `Deploy from a branch` aktivieren
-5. Branch `main` und Ordner `/root` wählen
-6. Die Seite ist danach in der Regel unter `https://patrickfischerksa.github.io/regula-engel-lerneinheit/` erreichbar
+1. In GitHub `Settings` öffnen
+2. `Pages` auswählen
+3. Als Source `GitHub Actions` wählen
+4. Den Workflow in `.github/workflows/pages.yml` ausführen lassen
+5. Die Seite ist danach in der Regel unter `https://patrickfischerksa.github.io/regula-engel-lerneinheit/` erreichbar
 
-Wenn der Ordner Teil eines größeren Repositories ist, kann er auch als Unterprojekt veröffentlicht oder in ein eigenes Repo ausgelagert werden.
+Der Workflow deployt die statischen Projektdateien automatisch bei jedem Push auf `main`.
 
 ## Technische Hinweise
 
