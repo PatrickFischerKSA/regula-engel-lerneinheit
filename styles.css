@@ -44,6 +44,10 @@ body.modal-open {
   overflow: hidden;
 }
 
+body.auth-locked {
+  overflow: hidden;
+}
+
 body::before,
 body::after {
   content: "";
@@ -83,6 +87,71 @@ select {
   max-width: 1460px;
   margin: 0 auto;
   padding: 28px;
+}
+
+body.auth-locked .page-shell,
+body.auth-locked .route-modal {
+  filter: blur(14px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.auth-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: none;
+}
+
+body.auth-locked .auth-gate {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.auth-gate-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 24, 32, 0.52);
+  backdrop-filter: blur(6px);
+}
+
+.auth-gate-panel {
+  position: relative;
+  z-index: 1;
+  width: min(560px, calc(100vw - 32px));
+  padding: 28px;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(244, 235, 221, 0.96));
+}
+
+.auth-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.auth-form input {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  font-size: 1rem;
+}
+
+.auth-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.auth-status {
+  min-height: 1.6em;
+  margin: 14px 0 0;
+  color: var(--oxblood);
+  font-weight: 700;
 }
 
 .panel {
@@ -582,7 +651,6 @@ progress::-webkit-progress-value {
 .google-maps-shell {
   display: grid;
   gap: 16px;
-  min-height: 320px;
   padding: 20px;
   border-radius: 22px;
   border: 1px solid rgba(30, 58, 76, 0.1);
@@ -592,6 +660,54 @@ progress::-webkit-progress-value {
     linear-gradient(180deg, rgba(255, 252, 248, 0.98), rgba(244, 235, 221, 0.94));
 }
 
+.route-map-canvas {
+  min-height: 460px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(30, 58, 76, 0.12);
+  background:
+    linear-gradient(180deg, rgba(217, 229, 239, 0.9), rgba(235, 241, 245, 0.92));
+}
+
+.route-map-canvas.is-error {
+  display: grid;
+  place-items: center;
+}
+
+.route-map-toolbar {
+  display: grid;
+  gap: 12px;
+}
+
+.route-map-status,
+.route-map-legend {
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(30, 58, 76, 0.1);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.route-map-status {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.route-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  color: var(--muted);
+}
+
+.route-map-fallback {
+  display: grid;
+  gap: 14px;
+  width: min(560px, 100%);
+  padding: 22px;
+  text-align: left;
+}
+
+.route-map-fallback p,
 .google-maps-copy {
   margin: 0;
 }
@@ -606,6 +722,33 @@ progress::-webkit-progress-value {
   margin: 12px 0 0;
   color: var(--muted);
   font-size: 0.94rem;
+}
+
+.map-infowindow {
+  max-width: 260px;
+  color: var(--ink);
+}
+
+.map-infowindow p {
+  margin: 8px 0 0;
+}
+
+.map-infowindow-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.map-infowindow-button {
+  margin-top: 10px;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(30, 58, 76, 0.12);
+  background: rgba(30, 58, 76, 0.08);
+  color: var(--navy);
+  cursor: pointer;
+  font-weight: 700;
 }
 
 .route-view-note {
@@ -850,5 +993,9 @@ textarea {
 
   .rail {
     position: static;
+  }
+
+  .route-map-canvas {
+    min-height: 360px;
   }
 }

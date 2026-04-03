@@ -1,5 +1,7 @@
 const storageKey = "regula-engel-lerneinheit-progress";
 const totalModules = 7;
+const authSessionKey = "regula-engel-auth-ok";
+const authPassword = "regula_engel";
 
 const warmupItems = [
   {
@@ -108,76 +110,76 @@ const timelineEvents = [
 ];
 
 const mapLocations = {
-  fluntern: { label: "Fluntern/Zürich", query: "Fluntern, Zurich, Switzerland" },
-  zurich: { label: "Zürich", query: "Zurich, Switzerland" },
-  chur: { label: "Chur", query: "Chur, Switzerland" },
-  zizers: { label: "Zizers", query: "Zizers, Switzerland" },
-  langwies: { label: "Langwies", query: "Langwies, Arosa, Switzerland" },
-  strassburg: { label: "Straßburg", query: "Strasbourg, France" },
-  rotterdam: { label: "Rotterdam", query: "Rotterdam, Netherlands" },
-  brussels: { label: "Brüssel", query: "Brussels, Belgium" },
-  paris: { label: "Paris", query: "Paris, France" },
-  toulon: { label: "Toulon", query: "Toulon, France" },
-  nice: { label: "Nizza", query: "Nice, France" },
-  marengo: { label: "Marengo", query: "Spinetta Marengo, Alessandria, Italy" },
-  malta: { label: "Malta", query: "Malta" },
-  alexandria: { label: "Alexandria", query: "Alexandria, Egypt" },
-  cairo: { label: "Kairo", query: "Cairo, Egypt" },
-  acre: { label: "Saint-Jean-d'Acre", query: "Acre, Israel" },
-  rome: { label: "Rom", query: "Rome, Italy" },
-  livorno: { label: "Livorno", query: "Livorno, Italy" },
-  turin: { label: "Turin", query: "Turin, Italy" },
-  milan: { label: "Mailand", query: "Milan, Italy" },
-  geneva: { label: "Genf", query: "Geneva, Switzerland" },
-  lausanne: { label: "Lausanne", query: "Lausanne, Switzerland" },
-  bern: { label: "Bern", query: "Bern, Switzerland" },
-  elba: { label: "Elba", query: "Elba, Italy" },
-  waterloo: { label: "Waterloo", query: "Waterloo, Belgium" },
-  malmaison: { label: "Malmaison", query: "Chateau de Malmaison, Rueil-Malmaison, France" },
-  lehavre: { label: "Le Havre", query: "Le Havre, France" },
-  london: { label: "London", query: "London, UK" },
-  calais: { label: "Calais", query: "Calais, France" },
-  charleroi: { label: "Charleroi", query: "Charleroi, Belgium" },
-  lyon: { label: "Lyon", query: "Lyon, France" },
-  newyork: { label: "New York", query: "New York, NY, USA" },
-  philadelphia: { label: "Philadelphia", query: "Philadelphia, PA, USA" },
-  charleston: { label: "Charleston", query: "Charleston, SC, USA" },
-  neworleans: { label: "New Orleans", query: "New Orleans, LA, USA" },
+  fluntern: { label: "Fluntern/Zürich", query: "Fluntern, Zurich, Switzerland", position: { lat: 47.3828, lng: 8.5736 } },
+  zurich: { label: "Zürich", query: "Zurich, Switzerland", position: { lat: 47.3769, lng: 8.5417 } },
+  chur: { label: "Chur", query: "Chur, Switzerland", position: { lat: 46.8508, lng: 9.5329 } },
+  zizers: { label: "Zizers", query: "Zizers, Switzerland", position: { lat: 46.9356, lng: 9.5647 } },
+  langwies: { label: "Langwies", query: "Langwies, Arosa, Switzerland", position: { lat: 46.8197, lng: 9.7077 } },
+  strassburg: { label: "Straßburg", query: "Strasbourg, France", position: { lat: 48.5734, lng: 7.7521 } },
+  rotterdam: { label: "Rotterdam", query: "Rotterdam, Netherlands", position: { lat: 51.9244, lng: 4.4777 } },
+  brussels: { label: "Brüssel", query: "Brussels, Belgium", position: { lat: 50.8503, lng: 4.3517 } },
+  paris: { label: "Paris", query: "Paris, France", position: { lat: 48.8566, lng: 2.3522 } },
+  toulon: { label: "Toulon", query: "Toulon, France", position: { lat: 43.1242, lng: 5.928 } },
+  nice: { label: "Nizza", query: "Nice, France", position: { lat: 43.7102, lng: 7.262 } },
+  marengo: { label: "Marengo", query: "Spinetta Marengo, Alessandria, Italy", position: { lat: 44.9124, lng: 8.6293 } },
+  malta: { label: "Malta", query: "Malta", position: { lat: 35.9375, lng: 14.3754 } },
+  alexandria: { label: "Alexandria", query: "Alexandria, Egypt", position: { lat: 31.2001, lng: 29.9187 } },
+  cairo: { label: "Kairo", query: "Cairo, Egypt", position: { lat: 30.0444, lng: 31.2357 } },
+  acre: { label: "Saint-Jean-d'Acre", query: "Acre, Israel", position: { lat: 32.923, lng: 35.0818 } },
+  rome: { label: "Rom", query: "Rome, Italy", position: { lat: 41.9028, lng: 12.4964 } },
+  livorno: { label: "Livorno", query: "Livorno, Italy", position: { lat: 43.5485, lng: 10.3106 } },
+  turin: { label: "Turin", query: "Turin, Italy", position: { lat: 45.0703, lng: 7.6869 } },
+  milan: { label: "Mailand", query: "Milan, Italy", position: { lat: 45.4642, lng: 9.19 } },
+  geneva: { label: "Genf", query: "Geneva, Switzerland", position: { lat: 46.2044, lng: 6.1432 } },
+  lausanne: { label: "Lausanne", query: "Lausanne, Switzerland", position: { lat: 46.5197, lng: 6.6323 } },
+  bern: { label: "Bern", query: "Bern, Switzerland", position: { lat: 46.948, lng: 7.4474 } },
+  elba: { label: "Elba", query: "Elba, Italy", position: { lat: 42.781, lng: 10.3 } },
+  waterloo: { label: "Waterloo", query: "Waterloo, Belgium", position: { lat: 50.714, lng: 4.3997 } },
+  malmaison: { label: "Malmaison", query: "Chateau de Malmaison, Rueil-Malmaison, France", position: { lat: 48.8607, lng: 2.168 } },
+  lehavre: { label: "Le Havre", query: "Le Havre, France", position: { lat: 49.4944, lng: 0.1079 } },
+  london: { label: "London", query: "London, UK", position: { lat: 51.5072, lng: -0.1276 } },
+  calais: { label: "Calais", query: "Calais, France", position: { lat: 50.9513, lng: 1.8587 } },
+  charleroi: { label: "Charleroi", query: "Charleroi, Belgium", position: { lat: 50.4108, lng: 4.4446 } },
+  lyon: { label: "Lyon", query: "Lyon, France", position: { lat: 45.764, lng: 4.8357 } },
+  newyork: { label: "New York", query: "New York, NY, USA", position: { lat: 40.7128, lng: -74.006 } },
+  philadelphia: { label: "Philadelphia", query: "Philadelphia, PA, USA", position: { lat: 39.9526, lng: -75.1652 } },
+  charleston: { label: "Charleston", query: "Charleston, SC, USA", position: { lat: 32.7765, lng: -79.9311 } },
+  neworleans: { label: "New Orleans", query: "New Orleans, LA, USA", position: { lat: 29.9511, lng: -90.0715 } },
 };
 
 const mapViewPresets = {
   overview: {
     id: "overview",
     label: "Gesamtkarte",
-    center: "36,5",
+    center: { lat: 36, lng: 5 },
     zoom: 2,
     hint: "Alle Großräume im Zusammenhang",
   },
   swiss: {
     id: "swiss",
     label: "Schweiz",
-    center: "46.8182,8.2275",
+    center: { lat: 46.8182, lng: 8.2275 },
     zoom: 7,
     hint: "Zürich, Chur und Bündner Raum im Detail",
   },
   centralEurope: {
     id: "centralEurope",
     label: "Mitteleuropa",
-    center: "47.8,6.8",
+    center: { lat: 47.8, lng: 6.8 },
     zoom: 5,
     hint: "Rheinraum, Niederlande, Paris und Norditalien",
   },
   mediterranean: {
     id: "mediterranean",
     label: "Mittelmeer",
-    center: "36.8,19.5",
+    center: { lat: 36.8, lng: 19.5 },
     zoom: 4,
     hint: "Toulon, Malta, Ägypten, Syrien und Elba",
   },
   atlantic: {
     id: "atlantic",
     label: "Atlantik/USA",
-    center: "39,-38",
+    center: { lat: 39, lng: -38 },
     zoom: 3,
     hint: "Häfen, Atlantikquerung und US-Ostküste",
   },
@@ -950,6 +952,16 @@ const initialState = {
 };
 
 const state = loadState();
+let googleMapsPromise = null;
+let routeMapRenderToken = 0;
+
+const routePalette = {
+  schweiz: "#1e3a4c",
+  europa: "#7b2f33",
+  aegypten: "#b04b43",
+  "elba-waterloo": "#8b5e34",
+  "amerika-rueckkehr": "#2d5b87",
+};
 
 function loadState() {
   try {
@@ -971,6 +983,52 @@ function saveState() {
   localStorage.setItem(storageKey, JSON.stringify(state));
   updateDashboard();
   renderInsightList();
+}
+
+function initAuthGate() {
+  const gate = document.getElementById("auth-gate");
+  const form = document.getElementById("auth-form");
+  const input = document.getElementById("auth-password");
+  const status = document.getElementById("auth-status");
+
+  if (!gate || !form || !input || !status) {
+    return;
+  }
+
+  if (sessionStorage.getItem(authSessionKey) === "true") {
+    unlockPage();
+    return;
+  }
+
+  document.body.classList.add("auth-locked");
+  gate.setAttribute("aria-hidden", "false");
+
+  setTimeout(() => input.focus(), 40);
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const entered = input.value.trim();
+
+    if (entered === authPassword) {
+      sessionStorage.setItem(authSessionKey, "true");
+      status.textContent = "";
+      input.value = "";
+      unlockPage();
+      return;
+    }
+
+    status.textContent = "Das Passwort stimmt noch nicht.";
+    input.select();
+  });
+}
+
+function unlockPage() {
+  const gate = document.getElementById("auth-gate");
+  if (gate) {
+    gate.setAttribute("aria-hidden", "true");
+  }
+
+  document.body.classList.remove("auth-locked");
 }
 
 function moduleDoneFlags() {
@@ -1117,26 +1175,28 @@ function renderRoutes() {
             .join("")}
         </div>
         <div class="google-maps-shell">
-          <p class="card-kicker">Google Maps</p>
-          <h3>Heutige Kartenansicht statt Eigendarstellung</h3>
-          <p class="google-maps-copy">
-            Die Karte wird jetzt bewusst über Google Maps geöffnet. Das ist räumlich deutlich lesbarer,
-            auch wenn die Darstellung modern ist und historische Wege nur näherungsweise sichtbar macht.
-          </p>
-          <div class="google-maps-actions">
-            <a class="btn primary" href="${buildGoogleMapsPrimaryUrl(activeRoute, activeView.id)}" target="_blank" rel="noreferrer">
-              ${activeRoute.googleAction === "directions" ? "Route in Google Maps öffnen" : "Kartenansicht in Google Maps öffnen"}
-            </a>
-            <a class="btn ghost" href="${buildGoogleMapsViewUrl(activeView.id)}" target="_blank" rel="noreferrer">
-              ${activeView.label} in Google Maps öffnen
-            </a>
+          <div class="route-map-canvas" id="route-map-canvas" aria-label="Interaktive Google-Karte zur Route ${escapeHtml(activeRoute.label)}"></div>
+          <div class="route-map-toolbar">
+            <div class="route-map-status" id="route-map-status" aria-live="polite">Google Maps wird geladen...</div>
+            <div class="google-maps-actions">
+              <a class="btn primary" href="${buildGoogleMapsPrimaryUrl(activeRoute, activeView.id)}" target="_blank" rel="noreferrer">
+                ${activeRoute.googleAction === "directions" ? "Route in Google Maps öffnen" : "Ansicht in Google Maps öffnen"}
+              </a>
+              <a class="btn ghost" href="${buildGoogleMapsViewUrl(activeView.id)}" target="_blank" rel="noreferrer">
+                ${activeView.label} separat öffnen
+              </a>
+            </div>
+          </div>
+          <div class="route-map-legend">
+            <span><strong>Linie:</strong> Hauptverlauf der Reisephase</span>
+            <span><strong>Marker:</strong> datierte Stationen, anklickbar für Details</span>
           </div>
           <div class="feedback-box">
             <strong>Aktuelle Ansicht</strong>
             <p class="feedback-text">${activeView.hint}</p>
           </div>
           <p class="route-note">
-            Google Maps URLs funktionieren laut Google ohne API-Schlüssel und öffnen die Karte direkt im Browser oder in der App.
+            Die Basiskarte ist modern, die eingezeichnete Route folgt aber den historisch relevanten Stationen dieser Reisephase.
           </p>
         </div>
       </article>
@@ -1181,6 +1241,8 @@ function renderRoutes() {
       </article>
     </div>
   `;
+
+  renderEmbeddedRouteMap(activeRoute, activeView);
 }
 
 function buildGoogleMapsSearchUrl(query) {
@@ -1189,7 +1251,8 @@ function buildGoogleMapsSearchUrl(query) {
 
 function buildGoogleMapsViewUrl(viewId) {
   const view = mapViewPresets[viewId] || mapViewPresets.overview;
-  return `https://www.google.com/maps/@?api=1&map_action=map&center=${encodeURIComponent(view.center)}&zoom=${view.zoom}&basemap=roadmap`;
+  const center = `${view.center.lat},${view.center.lng}`;
+  return `https://www.google.com/maps/@?api=1&map_action=map&center=${encodeURIComponent(center)}&zoom=${view.zoom}&basemap=roadmap`;
 }
 
 function buildGoogleMapsPrimaryUrl(route, viewId) {
@@ -1212,6 +1275,197 @@ function buildGoogleMapsDirectionsUrl(route) {
   }
 
   return url;
+}
+
+function renderEmbeddedRouteMap(route, view) {
+  const canvas = document.getElementById("route-map-canvas");
+  const status = document.getElementById("route-map-status");
+  const renderToken = ++routeMapRenderToken;
+
+  if (!canvas || !status) {
+    return;
+  }
+
+  canvas.innerHTML = "";
+  canvas.classList.remove("is-error");
+  status.textContent = "Google Maps wird geladen...";
+
+  ensureGoogleMapsLoaded()
+    .then(() => {
+      if (renderToken !== routeMapRenderToken) {
+        return;
+      }
+
+      drawRouteMap(canvas, status, route, view);
+    })
+    .catch((error) => {
+      if (renderToken !== routeMapRenderToken) {
+        return;
+      }
+
+      showRouteMapFallback(canvas, status, route, view, error);
+    });
+}
+
+function ensureGoogleMapsLoaded() {
+  if (window.google && window.google.maps) {
+    return Promise.resolve(window.google.maps);
+  }
+
+  if (googleMapsPromise) {
+    return googleMapsPromise;
+  }
+
+  const apiKey = window.GOOGLE_MAPS_API_KEY;
+  if (!apiKey || apiKey === "HIER_DEIN_API_KEY") {
+    return Promise.reject(new Error("missing_api_key"));
+  }
+
+  googleMapsPromise = new Promise((resolve, reject) => {
+    const existing = document.querySelector('script[data-google-maps-loader="true"]');
+    if (existing) {
+      existing.addEventListener("load", () => resolve(window.google.maps), { once: true });
+      existing.addEventListener("error", () => reject(new Error("load_failed")), { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey)}&loading=async`;
+    script.async = true;
+    script.defer = true;
+    script.dataset.googleMapsLoader = "true";
+    script.onload = () => {
+      if (window.google && window.google.maps) {
+        resolve(window.google.maps);
+        return;
+      }
+
+      reject(new Error("maps_unavailable"));
+    };
+    script.onerror = () => reject(new Error("load_failed"));
+    document.head.appendChild(script);
+  });
+
+  return googleMapsPromise.catch((error) => {
+    googleMapsPromise = null;
+    throw error;
+  });
+}
+
+function drawRouteMap(canvas, status, route, view) {
+  const googleMaps = window.google.maps;
+  const routeColor = routePalette[route.id] || routePalette.europa;
+  const stops = route.stops.map((stop, index) => ({
+    ...stop,
+    order: index + 1,
+    locationData: mapLocations[stop.location],
+  }));
+  const path = stops.map((stop) => stop.locationData.position);
+  const map = new googleMaps.Map(canvas, {
+    center: view.center,
+    zoom: view.zoom,
+    mapTypeControl: true,
+    streetViewControl: false,
+    fullscreenControl: true,
+    gestureHandling: "cooperative",
+  });
+
+  const infoWindow = new googleMaps.InfoWindow();
+  const bounds = new googleMaps.LatLngBounds();
+
+  path.forEach((point) => bounds.extend(point));
+
+  new googleMaps.Polyline({
+    path,
+    geodesic: true,
+    strokeColor: routeColor,
+    strokeOpacity: 0.92,
+    strokeWeight: 4,
+    map,
+  });
+
+  stops.forEach((stop) => {
+    const marker = new googleMaps.Marker({
+      position: stop.locationData.position,
+      map,
+      title: `${stop.year} - ${stop.event}`,
+      label: {
+        text: String(stop.order),
+        color: "#fffaf2",
+        fontWeight: "700",
+      },
+      icon: {
+        path: googleMaps.SymbolPath.CIRCLE,
+        fillColor: routeColor,
+        fillOpacity: 1,
+        strokeColor: "#fffaf2",
+        strokeWeight: 2,
+        scale: 13,
+      },
+    });
+
+    marker.addListener("click", () => {
+      infoWindow.setContent(`
+        <div class="map-infowindow">
+          <p class="map-infowindow-meta">${stop.year} · ${stop.locationData.label}</p>
+          <strong>${escapeHtml(stop.event)}</strong>
+          <p>${escapeHtml(stop.detail)}</p>
+          <button type="button" class="map-infowindow-button" data-map-modal="${stop.id}">Großes Detailfenster öffnen</button>
+        </div>
+      `);
+      infoWindow.open({ anchor: marker, map });
+    });
+
+    marker.addListener("dblclick", () => {
+      openRouteModal(stop.id);
+    });
+  });
+
+  if (view.id === "overview" && path.length > 1) {
+    map.fitBounds(bounds, 72);
+  } else {
+    map.setCenter(view.center);
+    map.setZoom(view.zoom);
+  }
+
+  googleMaps.event.addListener(infoWindow, "domready", () => {
+    const detailButton = document.querySelector(".map-infowindow-button[data-map-modal]");
+    if (!detailButton) {
+      return;
+    }
+
+    detailButton.addEventListener("click", () => {
+      openRouteModal(detailButton.dataset.mapModal);
+    }, { once: true });
+  });
+
+  status.textContent = `${route.stops.length} Stationen sichtbar. Marker anklicken für Kurzinfos, Detailfenster per Button öffnen.`;
+}
+
+function showRouteMapFallback(canvas, status, route, view, error) {
+  const fallbackMessage = mapFallbackMessage(error);
+
+  canvas.classList.add("is-error");
+  canvas.innerHTML = `
+    <div class="route-map-fallback">
+      <strong>Karte konnte nicht geladen werden.</strong>
+      <p>${fallbackMessage}</p>
+      <div class="google-maps-actions">
+        <a class="btn primary" href="${buildGoogleMapsPrimaryUrl(route, view.id)}" target="_blank" rel="noreferrer">
+          Google Maps separat öffnen
+        </a>
+      </div>
+    </div>
+  `;
+  status.textContent = "Fallback aktiv: Die eingebettete Karte ist derzeit nicht verfügbar.";
+}
+
+function mapFallbackMessage(error) {
+  if (error && error.message === "missing_api_key") {
+    return "In config.js ist noch kein Google-Maps-Schlüssel hinterlegt oder der Platzhalter wurde nicht ersetzt.";
+  }
+
+  return "Prüfe bitte den API-Schlüssel, die Website-Einschränkung und ob Google Maps auf dieser Seite geladen werden darf.";
 }
 
 function openRouteModal(stopId) {
@@ -1613,6 +1867,12 @@ document.addEventListener("click", (event) => {
     return;
   }
 
+  const mapModalButton = event.target.closest("[data-map-modal]");
+  if (mapModalButton) {
+    openRouteModal(mapModalButton.dataset.mapModal);
+    return;
+  }
+
   const routeModalClose = event.target.closest("[data-route-modal-close]");
   if (routeModalClose) {
     closeRouteModal();
@@ -1716,5 +1976,6 @@ if (!state.visitedContexts.length) {
   state.visitedContexts = [contextModules[0].id];
 }
 
+initAuthGate();
 renderAll();
 saveState();
