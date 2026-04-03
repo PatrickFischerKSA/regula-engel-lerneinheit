@@ -1115,6 +1115,30 @@ function unlockPage() {
   document.body.classList.remove("auth-locked");
 }
 
+function initBuildBadge() {
+  const badge = document.getElementById("build-badge");
+  if (!badge) {
+    return;
+  }
+
+  const appScript = Array.from(document.scripts).find((script) =>
+    typeof script.src === "string" && script.src.includes("app.js")
+  );
+
+  if (!appScript) {
+    badge.textContent = "Build unbekannt";
+    return;
+  }
+
+  try {
+    const url = new URL(appScript.src, window.location.href);
+    const version = url.searchParams.get("v");
+    badge.textContent = version ? `Build ${version}` : "Build ohne Versionsmarke";
+  } catch (error) {
+    badge.textContent = "Build unbekannt";
+  }
+}
+
 function moduleDoneFlags() {
   const warmupDone = Object.keys(state.warmupAnswers).length === warmupItems.length;
   const timelineDone = state.visitedTimeline.length >= 6;
@@ -2170,5 +2194,6 @@ if (!state.visitedContexts.length) {
 }
 
 initAuthGate();
+initBuildBadge();
 renderAll();
 saveState();

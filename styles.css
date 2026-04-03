@@ -384,6 +384,24 @@ progress::-webkit-progress-value {
   gap: 20px;
 }
 
+.site-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+  padding: 0 6px 10px;
+}
+
+.build-badge {
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(27, 36, 48, 0.1);
+  background: rgba(255, 255, 255, 0.68);
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
 .section-intro,
 .teacher-panel,
 .module,
