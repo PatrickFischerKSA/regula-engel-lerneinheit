@@ -1501,12 +1501,12 @@ function updateDashboard() {
 
 function renderWarmup() {
   const container = document.getElementById("warmup-list");
-  container.innerHTML = warmupItems
+  const cardsMarkup = warmupItems
     .map((item) => {
       const selected = state.warmupAnswers[item.id];
       const isCorrect = selected === item.category;
       const feedback = selected
-        ? `<div class="feedback-box"><strong>${isCorrect ? "Treffer" : "Noch nicht ganz"}</strong><p class="feedback-text">${item.feedback}</p></div>`
+        ? `<div class="feedback-box"><strong>${isCorrect ? "Treffer" : "Noch nicht ganz"}</strong><p class="feedback-text">${item.feedback}</p><p class="feedback-text"><strong>Gemeint ist hier:</strong> ${warmupCategoryHint(item.category)}</p></div>`
         : "";
 
       return `
@@ -1516,9 +1516,9 @@ function renderWarmup() {
             <h3>${item.statement}</h3>
           </div>
           <div class="warmup-choices">
-            ${renderWarmupChoice(item, "ereignis", "Ereignis")}
-            ${renderWarmupChoice(item, "kontext", "Kontext")}
-            ${renderWarmupChoice(item, "deutung", "Deutung")}
+            ${renderWarmupChoice(item, "ereignis", "Lebensstation", "eine überprüfbare Information oder ein konkreter Schritt im Lebenslauf")}
+            ${renderWarmupChoice(item, "kontext", "Historischer Hintergrund", "eine Einordnung, die erklärt, warum etwas historisch sinnvoll wird")}
+            ${renderWarmupChoice(item, "deutung", "Spätere Bewertung", "eine Sichtweise, ein Urteil oder eine Deutung über die Figur")}
           </div>
           ${selected ? `<p class="meta-line"><strong>Deine Zuordnung:</strong> ${labelForCategory(selected)}</p>` : ""}
           ${feedback}
@@ -1526,21 +1526,58 @@ function renderWarmup() {
       `;
     })
     .join("");
+
+  container.innerHTML = `
+    <article class="warmup-guide panel">
+      <div class="section-header">
+        <p class="card-kicker">So Gehst Du Vor</p>
+        <h3>Drei Leitfragen für jede Aussage</h3>
+      </div>
+      <div class="warmup-definitions">
+        <div class="warmup-definition">
+          <strong>Lebensstation</strong>
+          <p>Frage dich: Beschreibt die Aussage etwas Konkretes, das Regula Engel-Egli erlebt oder getan hat?</p>
+        </div>
+        <div class="warmup-definition">
+          <strong>Historischer Hintergrund</strong>
+          <p>Frage dich: Liefert die Aussage Wissen, das ihre Biografie historisch einordnet und erklärt?</p>
+        </div>
+        <div class="warmup-definition">
+          <strong>Spätere Bewertung</strong>
+          <p>Frage dich: Wird Regula Engel-Egli hier eher beurteilt, bezeichnet oder aus späterer Sicht interpretiert?</p>
+        </div>
+      </div>
+    </article>
+    ${cardsMarkup}
+  `;
 }
 
-function renderWarmupChoice(item, value, label) {
+function renderWarmupChoice(item, value, label, note) {
   const isActive = state.warmupAnswers[item.id] === value ? "is-active" : "";
   return `
     <button class="tag-btn ${isActive}" type="button" data-warmup="${item.id}" data-value="${value}">
-      ${label}
+      <span>${label}</span>
+      <span class="choice-note">${note}</span>
     </button>
   `;
 }
 
 function labelForCategory(category) {
-  if (category === "ereignis") return "Ereignis";
-  if (category === "kontext") return "Kontext";
-  return "Deutung";
+  if (category === "ereignis") return "Lebensstation";
+  if (category === "kontext") return "Historischer Hintergrund";
+  return "Spätere Bewertung";
+}
+
+function warmupCategoryHint(category) {
+  if (category === "ereignis") {
+    return "eine konkrete Lebensstation oder überprüfbare Einzelinformation";
+  }
+
+  if (category === "kontext") {
+    return "eine historische Einordnung, die den Lebensweg verständlicher macht";
+  }
+
+  return "eine spätere Bewertung oder Deutung der Figur";
 }
 
 function renderTimeline() {
