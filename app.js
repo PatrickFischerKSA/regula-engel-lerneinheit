@@ -183,6 +183,13 @@ const mapViewPresets = {
     zoom: 3,
     hint: "Häfen, Atlantikquerung und US-Ostküste",
   },
+  usaEast: {
+    id: "usaEast",
+    label: "USA-Reise",
+    center: { lat: 35.4, lng: -79.2 },
+    zoom: 4,
+    hint: "New York, Philadelphia, Charleston und New Orleans im US-Raum",
+  },
 };
 
 const routeSets = [
@@ -431,7 +438,9 @@ const routeSets = [
     insight:
       "Die Nachgeschichte ist selbst wieder eine Reiseroute und zeigt, wie unstet ihr Leben auch nach den Kriegen blieb.",
     googleAction: "map",
-    views: ["overview", "atlantic", "centralEurope", "swiss"],
+    views: ["overview", "atlantic", "usaEast", "centralEurope", "swiss"],
+    sourceCheck:
+      "Quellencheck: Die in dieser Einheit genutzten Texte stützen für die Amerika-Reise besonders New York und New Orleans. Wikipedia nennt New Orleans als Ort, an dem sie ihren Sohn Caspar sterbend fand; SRF nennt die Ankunft in New York nach 76 Tagen auf See. Houston ist in diesen Leitquellen nicht belegt.",
     stops: [
       {
         id: "amerika-1",
@@ -444,10 +453,10 @@ const routeSets = [
       {
         id: "amerika-2",
         location: "newyork",
-        year: "1815/16",
-        event: "Ankunft in New York",
+        year: "1816",
+        event: "Ankunft in New York nach der Atlantiküberquerung",
         detail:
-          "New York wird zu einem neuen Knotenpunkt ihres Lebens. Hier begegnet sie Emigration, Exil und der Hoffnung, bei verbliebenen Kontakten Unterstützung zu finden.",
+          "SRF nennt New York als Hafen ihrer Ankunft nach 76 Tagen auf See. Damit beginnt die amerikanische Phase ihres Suchwegs nach den überlebenden Kindern in einem neuen politischen und sozialen Umfeld.",
       },
       {
         id: "amerika-3",
@@ -460,10 +469,10 @@ const routeSets = [
       {
         id: "amerika-4",
         location: "neworleans",
-        year: "1817",
-        event: "Reise zum Sohn nach New Orleans",
+        year: "1816/17",
+        event: "Reise nach New Orleans zum Sohn Caspar",
         detail:
-          "Die Fahrt nach New Orleans zeigt, wie weit sich ihre Familienwege nun über den Atlantik verteilt haben. Exil bedeutet bei ihr nicht Stillstand, sondern erneute Bewegung.",
+          "Wikipedia und SRF nennen New Orleans als den Ort, an dem sie ihren Sohn Caspar krank und sterbend auffindet. Für die hier verwendete Quellenlage ist deshalb New Orleans klar belegt, nicht Houston.",
       },
       {
         id: "amerika-5",
@@ -870,63 +879,138 @@ const scenarios = [
 const quizQuestions = [
   {
     id: "q1",
-    question: "Welche Quelle ist in dieser Lerneinheit das eigentliche Selbstzeugnis?",
-    options: [
-      "Der SRF-Artikel",
-      "Das bereitgestellte PDF von Frau Oberst Engel",
-      "Das Historische Lexikon der Schweiz",
+    question: "Warum ist das Schweizer Soldwesen zentral, um Regula Engel-Eglis Biografie zu verstehen?",
+    placeholder: "Formuliere 2 bis 4 Sätze mit eigenem historischen Zusammenhang.",
+    criteria: [
+      {
+        label: "Schweizer in fremden Diensten",
+        keywords: ["soldwesen", "fremddienst", "fremden dienst", "fremde dienste", "fremdenregiment", "soeldner", "söldner", "militaerdienst", "militärdienst"],
+      },
+      {
+        label: "Transnationale Mobilität",
+        keywords: ["migration", "mobilitaet", "mobilität", "wanderung", "unterwegs", "transnational", "europaweit", "frankreich", "franzoesisch", "französisch"],
+      },
+      {
+        label: "Biografische Einbettung",
+        keywords: ["erklaert", "erklärt", "kontext", "lebensweg", "biografie", "familie", "regiment"],
+      },
     ],
-    answer: 1,
-    explanation:
-      "Das PDF enthält die memoirenhafte Ich-Erzählung Regula Engel-Eglis und ist damit die primäre Selbstzeugnisbasis.",
+    feedbackStrong:
+      "Deine Antwort ist historisch tragfähig: Du verknüpfst Regulas Biografie mit dem schweizerischen Fremddienstsystem und machst die Mobilität der Familie verständlich.",
+    feedbackMedium:
+      "Das geht schon in die richtige Richtung. Noch stärker wird die Antwort, wenn du das Soldwesen ausdrücklich als schweizerischen Fremddienst und als Rahmen für die Familienmigration benennst.",
+    feedbackWeak:
+      "Im Moment bleibt die Antwort noch zu allgemein. Entscheidend ist, dass das Schweizer Soldwesen erklärt, warum eine Schweizer Familie überhaupt in französischen Kriegsräumen unterwegs war.",
+    emptyPrompt:
+      "Wichtig wären hier mindestens die Begriffe Fremddienst oder Soldwesen, die Mobilität der Familie und die Einbettung in französische Dienste.",
   },
   {
     id: "q2",
-    question: "Warum ist das Schweizer Soldwesen für Regula Engel-Eglis Biografie wichtig?",
-    options: [
-      "Weil es erklärt, warum Schweizer Familien in französischen Diensten unterwegs waren",
-      "Weil dadurch Waterloo vermieden wurde",
-      "Weil Regula Engel-Egli in der Schweiz Offizierin war",
+    question: "Wie sollte man Regula Engel-Eglis Memoiren historisch lesen?",
+    placeholder: "Nenne, was der Text leisten kann und wo man kritisch bleiben muss.",
+    criteria: [
+      {
+        label: "Selbstzeugnis",
+        keywords: ["selbstzeugnis", "memoiren", "ich-erzaehlung", "ich-erzählung", "augenzeugin", "erinnerungstext"],
+      },
+      {
+        label: "Quellenkritik und Vergleich",
+        keywords: ["vergleichen", "andere quellen", "quellenkritik", "abgleichen", "lexikon", "museum", "journalistisch", "perspektiven"],
+      },
+      {
+        label: "Selbstinszenierung",
+        keywords: ["inszenierung", "selbstdarstellung", "dramatisierung", "stilisierung", "erzaehlkonstruktion", "erzählkonstruktion"],
+      },
     ],
-    answer: 0,
-    explanation:
-      "Der Kontext des fremden Militärdienstes erklärt die transnationale Lebenswelt der Familie Engel.",
+    feedbackStrong:
+      "Das ist eine starke quellenkritische Antwort: Du erkennst die Memoiren zugleich als wertvolles Selbstzeugnis und als bewusst gestaltete Erzählung.",
+    feedbackMedium:
+      "Ein guter Ansatz. Ergänze noch klarer, dass die Memoiren nicht nur berichten, sondern auch inszenieren und deshalb mit anderen Quellentypen verglichen werden sollten.",
+    feedbackWeak:
+      "Hier fehlt noch die quellenkritische Spannung. Wichtig ist gerade das Zusammenspiel aus Erlebnisnähe, Erinnerung und Selbststilisierung.",
+    emptyPrompt:
+      "Nützlich sind hier Begriffe wie Selbstzeugnis, Vergleich mit anderen Quellen und Selbstinszenierung oder Dramatisierung.",
   },
   {
     id: "q3",
-    question: "Was macht den Begriff «Schweizer Amazone» problematisch und interessant zugleich?",
-    options: [
-      "Er ist nur ein neutrales Synonym für Mutter",
-      "Er macht sie sichtbar, kann aber auch heroisch vereinfachen",
-      "Er stammt direkt aus dem HLS-Eintrag als amtlicher Titel",
+    question: "Warum ist Waterloo der zentrale Wendepunkt in ihrer Lebensgeschichte?",
+    placeholder: "Beziehe Krieg, Familie und Biografie zusammen aufeinander.",
+    criteria: [
+      {
+        label: "Verluste in der Familie",
+        keywords: ["mann", "ehemann", "soehne", "söhne", "tod", "verlust", "familie"],
+      },
+      {
+        label: "Eigene Verwundung",
+        keywords: ["verwundet", "verwundung", "wunde", "schwer verletzt", "verletzung"],
+      },
+      {
+        label: "Biografischer Bruch",
+        keywords: ["bruch", "wendepunkt", "zusammenbruch", "lebensbruch", "neuanfang", "absturz"],
+      },
     ],
-    answer: 1,
-    explanation:
-      "Gerade die Mischung aus Sichtbarkeit und Zuspitzung macht den Begriff für die Analyse ergiebig.",
+    feedbackStrong:
+      "Deine Antwort trifft den Kern: Waterloo ist nicht nur eine Schlacht, sondern der Punkt, an dem Krieg, Familienverlust und persönlicher Absturz zusammenfallen.",
+    feedbackMedium:
+      "Das ist schon tragfähig. Noch besser wäre, wenn du neben dem Tod des Mannes oder der Söhne auch ihre eigene Verwundung oder den biografischen Bruch ausdrücklich nennst.",
+    feedbackWeak:
+      "Bisher bleibt Waterloo noch zu abstrakt. Historisch zentral wird die Station durch die Verbindung von Schlacht, Familienverlust und eigener Verwundung.",
+    emptyPrompt:
+      "Für eine gute Antwort brauchst du mindestens den Familienverlust, ihre eigene Verwundung oder den biografischen Bruch nach 1815.",
   },
   {
     id: "q4",
-    question: "Was zeigt Waterloo in Regula Engel-Eglis Erzählung besonders stark?",
-    options: [
-      "Die völlige Trennung von privatem und politischem Leben",
-      "Die Überlagerung von Familiengeschichte, Kriegserfahrung und Selbstdramatisierung",
-      "Dass sie nach der Schlacht reich nach Zürich zurückkehrte",
+    question: "Warum ist der Titel «Schweizer Amazone» zugleich nützlich und problematisch?",
+    placeholder: "Erkläre die Ambivalenz des Begriffs in 2 bis 4 Sätzen.",
+    criteria: [
+      {
+        label: "Sichtbarkeit",
+        keywords: ["sichtbar", "aufmerksamkeit", "auffaellig", "auffällig", "markant", "medial", "interesse"],
+      },
+      {
+        label: "Heroisierung oder Zuspitzung",
+        keywords: ["heroisch", "heroisierung", "ueberzeichnung", "überzeichnung", "zuspitzung", "spektakulaer", "spektakulär", "vereinfachung"],
+      },
+      {
+        label: "Erinnerungskultur",
+        keywords: ["erinnerung", "erinnerungskultur", "rezeption", "nachleben", "spaetere deutung", "spätere deutung"],
+      },
     ],
-    answer: 1,
-    explanation:
-      "Waterloo bündelt persönliche Verluste, Kriegserfahrung und die rhetorische Zuspitzung des Selbstzeugnisses.",
+    feedbackStrong:
+      "Das ist eine qualifizierte Antwort: Du zeigst, dass der Begriff Aufmerksamkeit schafft, aber zugleich eine spätere, vereinfachende Deutung mittransportiert.",
+    feedbackMedium:
+      "Schon gut. Noch stärker wird die Antwort, wenn du nicht nur die Zuspitzung erwähnst, sondern auch den Begriff als Teil späterer Erinnerungskultur beschreibst.",
+    feedbackWeak:
+      "Im Moment fehlt die Ambivalenz. Der Begriff ist weder rein positiv noch rein falsch, sondern zugleich sichtbar machend und verzerrend.",
+    emptyPrompt:
+      "Hilfreich sind hier drei Aspekte: Sichtbarkeit, Heroisierung oder Vereinfachung und spätere Erinnerungskultur.",
   },
   {
     id: "q5",
-    question: "Warum ist der Vergleich mehrerer Quellentypen didaktisch sinnvoll?",
-    options: [
-      "Weil eine einzige Quelle nie alle Perspektiven vollständig liefert",
-      "Weil nur moderne Medien glaubwürdig sind",
-      "Weil man Selbstzeugnisse sonst nicht lesen darf",
+    question: "Warum veröffentlichte Regula Engel-Egli ihre Lebensgeschichte nach 1815?",
+    placeholder: "Antworte mit sozialer Lage und möglicher Schreibabsicht.",
+    criteria: [
+      {
+        label: "Wirtschaftliche Not",
+        keywords: ["not", "armut", "prekär", "unterhalt", "wirtschaftlich", "geld", "existenz", "lebensunterhalt"],
+      },
+      {
+        label: "Publikation als Strategie",
+        keywords: ["publikation", "veroeffentlichung", "veröffentlichung", "strategie", "unterstuetzung", "unterstützung", "hilfe", "ueberleben", "überleben"],
+      },
+      {
+        label: "Erinnerung oder Selbstdeutung",
+        keywords: ["erinnerung", "lebensgeschichte", "selbstdeutung", "selbstdarstellung", "erzählen", "autor", "autorin"],
+      },
     ],
-    answer: 0,
-    explanation:
-      "Historisches Lernen gewinnt, wenn Erlebnisbericht, Sachtext, Museum und Rezeption miteinander ins Gespräch gebracht werden.",
+    feedbackStrong:
+      "Die Antwort ist überzeugend: Du verbindest ihre prekäre Lage mit der Publikation als Überlebensstrategie und mit dem Wunsch, das eigene Leben erzählbar zu machen.",
+    feedbackMedium:
+      "Das trägt schon. Noch stärker wäre, wenn du neben der wirtschaftlichen Not ausdrücklich sagst, dass das Schreiben auch eine bewusste Form von Selbstdeutung und öffentlicher Sichtbarkeit war.",
+    feedbackWeak:
+      "Hier fehlt noch der soziale Hintergrund. Historisch wichtig ist gerade, dass das Schreiben nicht nur Erinnerung, sondern auch materielle Strategie war.",
+    emptyPrompt:
+      "Gute Antworten nennen ihre prekäre Lage, die Veröffentlichung als Strategie und eine Form von Erinnerung oder Selbstdeutung.",
   },
 ];
 
@@ -1207,6 +1291,12 @@ function renderRoutes() {
           <p>${activeRoute.summary}</p>
         </div>
         <p class="route-view-note"><strong>Aktuelle Ansicht:</strong> ${activeView.label}</p>
+        ${activeRoute.sourceCheck ? `
+          <div class="feedback-box">
+            <strong>Quellencheck zur Routenrekonstruktion</strong>
+            <p class="feedback-text">${activeRoute.sourceCheck}</p>
+          </div>
+        ` : ""}
         <div class="feedback-box">
           <strong>Warum diese Karte wichtig ist</strong>
           <p class="feedback-text">${activeRoute.insight}</p>
@@ -1640,35 +1730,36 @@ function bestScenarioInsight(id) {
   return "Regula Engel-Egli schrieb nicht nur aus Erinnerungswillen, sondern auch aus sozialer und wirtschaftlicher Not.";
 }
 
+const quizQuestionLookup = Object.fromEntries(quizQuestions.map((question) => [question.id, question]));
+
 function renderQuiz() {
   const form = document.getElementById("quiz-form");
 
   form.innerHTML = quizQuestions
     .map((question, index) => {
-      const selected = state.quizAnswers[question.id];
+      const answer = typeof state.quizAnswers[question.id] === "string" ? state.quizAnswers[question.id] : "";
 
       return `
         <article class="quiz-card">
           <p class="card-kicker">Frage ${index + 1}</p>
           <h3>${question.question}</h3>
-          <div class="quiz-options">
-            ${question.options
-              .map(
-                (option, optionIndex) => `
-                  <label class="quiz-option">
-                    <input type="radio" name="${question.id}" value="${optionIndex}" ${
-                      Number(selected) === optionIndex ? "checked" : ""
-                    } />
-                    <span>${option}</span>
-                  </label>
-                `
-              )
-              .join("")}
-          </div>
+          <label class="quiz-prompt" for="${question.id}">${question.placeholder}</label>
+          <textarea
+            class="quiz-answer"
+            id="${question.id}"
+            rows="5"
+            data-quiz-answer="${question.id}"
+            placeholder="${question.placeholder}"
+          >${escapeHtml(answer)}</textarea>
+          <div class="quiz-live-feedback" id="quiz-live-${question.id}"></div>
         </article>
       `;
     })
     .join("");
+
+  quizQuestions.forEach((question) => {
+    updateQuizLiveFeedback(question.id);
+  });
 }
 
 function renderInsightList() {
@@ -1710,19 +1801,106 @@ function decodeHtml(text) {
   return element.value;
 }
 
+function normalizeText(text) {
+  return text
+    .toLowerCase()
+    .replaceAll("ä", "ae")
+    .replaceAll("ö", "oe")
+    .replaceAll("ü", "ue")
+    .replaceAll("ß", "ss")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\p{L}\p{N}\s-]/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function evaluateOpenAnswer(question, answer) {
+  const rawAnswer = typeof answer === "string" ? answer.trim() : "";
+  if (!rawAnswer) {
+    return {
+      tone: "empty",
+      title: "Noch offen",
+      message: question.emptyPrompt,
+      matched: [],
+      missing: question.criteria.map((criterion) => criterion.label),
+      isStrong: false,
+    };
+  }
+
+  const normalized = normalizeText(rawAnswer);
+  const matchedCriteria = question.criteria.filter((criterion) =>
+    criterion.keywords.some((keyword) => normalized.includes(normalizeText(keyword)))
+  );
+  const missingCriteria = question.criteria.filter((criterion) => !matchedCriteria.includes(criterion));
+  const ratio = matchedCriteria.length / question.criteria.length;
+
+  if (ratio >= 1) {
+    return {
+      tone: "strong",
+      title: "Sehr tragfähig",
+      message: question.feedbackStrong,
+      matched: matchedCriteria.map((criterion) => criterion.label),
+      missing: [],
+      isStrong: true,
+    };
+  }
+
+  if (ratio >= 0.67) {
+    return {
+      tone: "medium",
+      title: "Schon gut",
+      message: question.feedbackMedium,
+      matched: matchedCriteria.map((criterion) => criterion.label),
+      missing: missingCriteria.map((criterion) => criterion.label),
+      isStrong: true,
+    };
+  }
+
+  return {
+    tone: "weak",
+    title: "Noch ausbauen",
+    message: question.feedbackWeak,
+    matched: matchedCriteria.map((criterion) => criterion.label),
+    missing: missingCriteria.map((criterion) => criterion.label),
+    isStrong: false,
+  };
+}
+
+function renderQuizLiveFeedbackMarkup(evaluation) {
+  return `
+    <strong>${evaluation.title}</strong>
+    <p>${evaluation.message}</p>
+    ${evaluation.matched.length ? `<p class="quiz-feedback-meta"><strong>Erkannt:</strong> ${evaluation.matched.join(", ")}</p>` : ""}
+    ${evaluation.missing.length ? `<p class="quiz-feedback-meta"><strong>Noch sinnvoll:</strong> ${evaluation.missing.join(", ")}</p>` : ""}
+  `;
+}
+
+function updateQuizLiveFeedback(questionId) {
+  const question = quizQuestionLookup[questionId];
+  const feedback = document.getElementById(`quiz-live-${questionId}`);
+
+  if (!question || !feedback) {
+    return;
+  }
+
+  const evaluation = evaluateOpenAnswer(question, state.quizAnswers[questionId]);
+  feedback.className = `quiz-live-feedback is-${evaluation.tone}`;
+  feedback.innerHTML = renderQuizLiveFeedbackMarkup(evaluation);
+}
+
 function scoreQuiz() {
   let score = 0;
   const feedbackLines = [];
 
   for (const question of quizQuestions) {
-    const selected = Number(state.quizAnswers[question.id]);
-    const correct = selected === question.answer;
-    if (correct) {
+    const evaluation = evaluateOpenAnswer(question, state.quizAnswers[question.id]);
+    if (evaluation.isStrong) {
       score += 1;
     }
 
     feedbackLines.push(
-      `<p><strong>${question.question}</strong><br>${correct ? "Richtig." : "Noch nicht überzeugend."} ${question.explanation}</p>`
+      `<p><strong>${question.question}</strong><br>${evaluation.title}. ${evaluation.message}</p>`
     );
   }
 
@@ -1929,11 +2107,17 @@ document.addEventListener("change", (event) => {
     saveState();
     return;
   }
+});
 
-  if (event.target.matches(".quiz-option input")) {
-    state.quizAnswers[event.target.name] = Number(event.target.value);
-    saveState();
+document.addEventListener("input", (event) => {
+  const quizAnswer = event.target.closest("[data-quiz-answer]");
+  if (!quizAnswer) {
+    return;
   }
+
+  state.quizAnswers[quizAnswer.dataset.quizAnswer] = quizAnswer.value;
+  updateQuizLiveFeedback(quizAnswer.dataset.quizAnswer);
+  saveState();
 });
 
 document.getElementById("quiz-submit").addEventListener("click", scoreQuiz);
