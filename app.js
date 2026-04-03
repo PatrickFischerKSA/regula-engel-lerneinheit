@@ -108,72 +108,77 @@ const timelineEvents = [
 ];
 
 const mapLocations = {
-  fluntern: { label: "Fluntern/Zürich", x: 448, y: 206 },
-  zurich: { label: "Zürich", x: 446, y: 208 },
-  chur: { label: "Chur", x: 474, y: 220 },
-  zizers: { label: "Zizers", x: 482, y: 214 },
-  langwies: { label: "Langwies", x: 490, y: 225 },
-  strassburg: { label: "Straßburg", x: 428, y: 188 },
-  rotterdam: { label: "Rotterdam", x: 385, y: 120 },
-  brussels: { label: "Brüssel", x: 377, y: 146 },
-  paris: { label: "Paris", x: 332, y: 170 },
-  toulon: { label: "Toulon", x: 372, y: 261 },
-  nice: { label: "Nizza", x: 394, y: 255 },
-  marengo: { label: "Marengo", x: 420, y: 248 },
-  malta: { label: "Malta", x: 494, y: 391 },
-  alexandria: { label: "Alexandria", x: 622, y: 410 },
-  cairo: { label: "Kairo", x: 648, y: 430 },
-  acre: { label: "Saint-Jean-d'Acre", x: 705, y: 396 },
-  rome: { label: "Rom", x: 467, y: 304 },
-  livorno: { label: "Livorno", x: 457, y: 284 },
-  turin: { label: "Turin", x: 415, y: 254 },
-  milan: { label: "Mailand", x: 438, y: 247 },
-  geneva: { label: "Genf", x: 406, y: 233 },
-  lausanne: { label: "Lausanne", x: 394, y: 223 },
-  bern: { label: "Bern", x: 431, y: 214 },
-  elba: { label: "Elba", x: 468, y: 316 },
-  waterloo: { label: "Waterloo", x: 381, y: 143 },
-  malmaison: { label: "Malmaison", x: 325, y: 166 },
-  lehavre: { label: "Le Havre", x: 307, y: 160 },
-  london: { label: "London", x: 301, y: 120 },
-  calais: { label: "Calais", x: 329, y: 143 },
-  charleroi: { label: "Charleroi", x: 384, y: 154 },
-  lyon: { label: "Lyon", x: 375, y: 223 },
-  newyork: { label: "New York", x: 88, y: 142 },
-  philadelphia: { label: "Philadelphia", x: 92, y: 165 },
-  charleston: { label: "Charleston", x: 102, y: 224 },
-  neworleans: { label: "New Orleans", x: 58, y: 286 },
+  fluntern: { label: "Fluntern/Zürich", query: "Fluntern, Zurich, Switzerland" },
+  zurich: { label: "Zürich", query: "Zurich, Switzerland" },
+  chur: { label: "Chur", query: "Chur, Switzerland" },
+  zizers: { label: "Zizers", query: "Zizers, Switzerland" },
+  langwies: { label: "Langwies", query: "Langwies, Arosa, Switzerland" },
+  strassburg: { label: "Straßburg", query: "Strasbourg, France" },
+  rotterdam: { label: "Rotterdam", query: "Rotterdam, Netherlands" },
+  brussels: { label: "Brüssel", query: "Brussels, Belgium" },
+  paris: { label: "Paris", query: "Paris, France" },
+  toulon: { label: "Toulon", query: "Toulon, France" },
+  nice: { label: "Nizza", query: "Nice, France" },
+  marengo: { label: "Marengo", query: "Spinetta Marengo, Alessandria, Italy" },
+  malta: { label: "Malta", query: "Malta" },
+  alexandria: { label: "Alexandria", query: "Alexandria, Egypt" },
+  cairo: { label: "Kairo", query: "Cairo, Egypt" },
+  acre: { label: "Saint-Jean-d'Acre", query: "Acre, Israel" },
+  rome: { label: "Rom", query: "Rome, Italy" },
+  livorno: { label: "Livorno", query: "Livorno, Italy" },
+  turin: { label: "Turin", query: "Turin, Italy" },
+  milan: { label: "Mailand", query: "Milan, Italy" },
+  geneva: { label: "Genf", query: "Geneva, Switzerland" },
+  lausanne: { label: "Lausanne", query: "Lausanne, Switzerland" },
+  bern: { label: "Bern", query: "Bern, Switzerland" },
+  elba: { label: "Elba", query: "Elba, Italy" },
+  waterloo: { label: "Waterloo", query: "Waterloo, Belgium" },
+  malmaison: { label: "Malmaison", query: "Chateau de Malmaison, Rueil-Malmaison, France" },
+  lehavre: { label: "Le Havre", query: "Le Havre, France" },
+  london: { label: "London", query: "London, UK" },
+  calais: { label: "Calais", query: "Calais, France" },
+  charleroi: { label: "Charleroi", query: "Charleroi, Belgium" },
+  lyon: { label: "Lyon", query: "Lyon, France" },
+  newyork: { label: "New York", query: "New York, NY, USA" },
+  philadelphia: { label: "Philadelphia", query: "Philadelphia, PA, USA" },
+  charleston: { label: "Charleston", query: "Charleston, SC, USA" },
+  neworleans: { label: "New Orleans", query: "New Orleans, LA, USA" },
 };
 
 const mapViewPresets = {
   overview: {
     id: "overview",
     label: "Gesamtkarte",
-    viewBox: "0 0 820 520",
+    center: "36,5",
+    zoom: 2,
     hint: "Alle Großräume im Zusammenhang",
   },
   swiss: {
     id: "swiss",
     label: "Schweiz",
-    viewBox: "372 160 170 110",
+    center: "46.8182,8.2275",
+    zoom: 7,
     hint: "Zürich, Chur und Bündner Raum im Detail",
   },
   centralEurope: {
     id: "centralEurope",
     label: "Mitteleuropa",
-    viewBox: "255 95 285 210",
+    center: "47.8,6.8",
+    zoom: 5,
     hint: "Rheinraum, Niederlande, Paris und Norditalien",
   },
   mediterranean: {
     id: "mediterranean",
     label: "Mittelmeer",
-    viewBox: "325 185 430 290",
+    center: "36.8,19.5",
+    zoom: 4,
     hint: "Toulon, Malta, Ägypten, Syrien und Elba",
   },
   atlantic: {
     id: "atlantic",
     label: "Atlantik/USA",
-    viewBox: "0 75 360 280",
+    center: "39,-38",
+    zoom: 3,
     hint: "Häfen, Atlantikquerung und US-Ostküste",
   },
 };
@@ -187,6 +192,7 @@ const routeSets = [
       "Die frühen Stationen liegen im Raum Zürich, Chur, Zizers und Langwies. Schon hier zeigt sich, dass Regulas Biografie von Binnenmigration, Heirat und Militärnetzwerken geprägt ist.",
     insight:
       "Die Geschichte beginnt nicht erst mit Napoleon, sondern in konkreten Schweizer Räumen und Wegen.",
+    googleAction: "directions",
     views: ["overview", "swiss"],
     stops: [
       {
@@ -231,6 +237,7 @@ const routeSets = [
       "Die Familie bewegt sich mit dem Regiment durch Straßburg, Rotterdam, Brüssel, Paris, Turin, Mailand, Nizza und Marengo. Die Wege folgen militärischen Logiken, nicht persönlicher Sesshaftigkeit.",
     insight:
       "Die europäischen Feldzüge machen Regula Engel-Eglis Leben zu einer mobilen Kriegsexistenz zwischen Garnison, Marsch und Familie.",
+    googleAction: "directions",
     views: ["overview", "centralEurope"],
     stops: [
       {
@@ -307,6 +314,7 @@ const routeSets = [
       "Die Route führt von Toulon über Malta nach Alexandria und Kairo, weiter Richtung Saint-Jean-d'Acre und wieder zurück über Nizza nach Europa.",
     insight:
       "Erst auf der Karte wird sichtbar, wie weit die Familie aus dem Schweizer Ausgangsraum herausgeriet.",
+    googleAction: "map",
     views: ["overview", "mediterranean", "centralEurope"],
     stops: [
       {
@@ -367,6 +375,7 @@ const routeSets = [
       "Die Phase verbindet Paris und Malmaison, Elba, den Weg nach Belgien und Waterloo. Hier verdichten sich politische Endphase und privates Katastrophenerlebnis.",
     insight:
       "Die letzte napoleonische Phase ist zugleich politische Endgeschichte und persönlicher Totalverlust.",
+    googleAction: "map",
     views: ["overview", "centralEurope", "mediterranean"],
     stops: [
       {
@@ -419,6 +428,7 @@ const routeSets = [
       "Nach 1815 führt der Weg über Le Havre nach New York, Philadelphia und New Orleans, später über London, Calais, Brüssel, Charleroi, Lyon, Turin, Livorno, Rom, Genf, Lausanne, Bern und Zürich zurück.",
     insight:
       "Die Nachgeschichte ist selbst wieder eine Reiseroute und zeigt, wie unstet ihr Leben auch nach den Kriegen blieb.",
+    googleAction: "map",
     views: ["overview", "atlantic", "centralEurope", "swiss"],
     stops: [
       {
@@ -1106,10 +1116,29 @@ function renderRoutes() {
             })
             .join("")}
         </div>
-        <div class="route-map-frame">
-          ${buildRouteSvg(activeRoute, activeView.id)}
+        <div class="google-maps-shell">
+          <p class="card-kicker">Google Maps</p>
+          <h3>Heutige Kartenansicht statt Eigendarstellung</h3>
+          <p class="google-maps-copy">
+            Die Karte wird jetzt bewusst über Google Maps geöffnet. Das ist räumlich deutlich lesbarer,
+            auch wenn die Darstellung modern ist und historische Wege nur näherungsweise sichtbar macht.
+          </p>
+          <div class="google-maps-actions">
+            <a class="btn primary" href="${buildGoogleMapsPrimaryUrl(activeRoute, activeView.id)}" target="_blank" rel="noreferrer">
+              ${activeRoute.googleAction === "directions" ? "Route in Google Maps öffnen" : "Kartenansicht in Google Maps öffnen"}
+            </a>
+            <a class="btn ghost" href="${buildGoogleMapsViewUrl(activeView.id)}" target="_blank" rel="noreferrer">
+              ${activeView.label} in Google Maps öffnen
+            </a>
+          </div>
+          <div class="feedback-box">
+            <strong>Aktuelle Ansicht</strong>
+            <p class="feedback-text">${activeView.hint}</p>
+          </div>
+          <p class="route-note">
+            Google Maps URLs funktionieren laut Google ohne API-Schlüssel und öffnen die Karte direkt im Browser oder in der App.
+          </p>
         </div>
-        <p class="route-note">${activeView.hint}. Marker und Detailbuttons öffnen ausführlichere Kontextfenster.</p>
       </article>
       <article class="route-card route-info-card">
         <div>
@@ -1137,6 +1166,7 @@ function renderRoutes() {
                       </div>
                     </div>
                     <div class="route-stop-actions">
+                      <a class="btn ghost" href="${buildGoogleMapsSearchUrl(mapLocations[stop.location].query)}" target="_blank" rel="noreferrer">Ort in Google Maps</a>
                       <button class="btn subtle" type="button" data-route-stop="${stop.id}">Mehr erfahren</button>
                     </div>
                   </li>
@@ -1153,80 +1183,35 @@ function renderRoutes() {
   `;
 }
 
-function buildRouteSvg(route, viewId) {
-  const activeView = mapViewPresets[viewId] || mapViewPresets.overview;
-  const polyline = route.stops
-    .map((stop) => {
-      const point = mapLocations[stop.location];
-      return `${point.x},${point.y}`;
-    })
-    .join(" ");
+function buildGoogleMapsSearchUrl(query) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
 
-  return `
-    <svg class="route-map" viewBox="${activeView.viewBox}" role="img" aria-label="Karte mit Reiseroute">
-      <defs>
-        <linearGradient id="seaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#e9f1f5" />
-          <stop offset="100%" stop-color="#d9e7ee" />
-        </linearGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="3" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-      <rect x="0" y="0" width="820" height="520" rx="26" fill="url(#seaGradient)" />
-      <g class="map-land">
-        <path d="M214 76 L278 58 L338 78 L377 112 L432 118 L488 144 L548 193 L578 224 L602 251 L611 280 L587 310 L523 319 L497 343 L454 355 L404 337 L390 294 L334 281 L291 257 L241 223 L217 187 L196 152 L199 108 Z" />
-        <path d="M461 226 L497 235 L520 261 L518 312 L495 353 L463 335 L448 299 L446 249 Z" />
-        <path d="M603 379 L687 367 L740 387 L738 437 L670 456 L606 432 Z" />
-        <path d="M36 78 L116 92 L135 156 L112 224 L84 287 L53 302 L28 263 L22 188 Z" />
-        <path d="M287 92 L307 84 L322 93 L316 108 L292 109 Z" />
-      </g>
-      <g class="map-grid">
-        <line x1="0" y1="110" x2="820" y2="110" />
-        <line x1="0" y1="220" x2="820" y2="220" />
-        <line x1="0" y1="330" x2="820" y2="330" />
-        <line x1="160" y1="0" x2="160" y2="520" />
-        <line x1="320" y1="0" x2="320" y2="520" />
-        <line x1="480" y1="0" x2="480" y2="520" />
-        <line x1="640" y1="0" x2="640" y2="520" />
-      </g>
-      <g class="map-water-labels">
-        <text x="240" y="70">Atlantik</text>
-        <text x="505" y="400">Mittelmeer</text>
-        <text x="630" y="356">Nordafrika</text>
-        <text x="660" y="95">Osteuropa</text>
-      </g>
-      <polyline class="route-line" points="${polyline}" />
-      ${route.stops
-        .map((stop, index) => {
-          const point = mapLocations[stop.location];
-          const mapEvent = stop.event.length > 34 ? `${stop.event.slice(0, 31)}…` : stop.event;
-          const labelYOffset = index % 2 === 0 ? -18 : 28;
-          const cardOffsetX = index % 3 === 0 ? 10 : index % 3 === 1 ? -90 : 16;
-          const cardOffsetY = index % 2 === 0 ? -62 : 18;
-          return `
-            <g class="route-point route-point-button" data-route-stop="${stop.id}" tabindex="0" role="button" aria-label="${stop.year}: ${stop.event} in ${point.label}">
-              <circle cx="${point.x}" cy="${point.y}" r="6" />
-              <circle cx="${point.x}" cy="${point.y}" r="11" class="route-point-halo" filter="url(#glow)" />
-              <circle cx="${point.x}" cy="${point.y}" r="14" class="route-seq-ring" />
-              <text x="${point.x}" y="${point.y + 4}" text-anchor="middle" class="route-seq-label">${index + 1}</text>
-              <g class="route-label-card" transform="translate(${point.x + cardOffsetX}, ${point.y + cardOffsetY})">
-                <rect x="0" y="0" width="120" height="46" rx="10" />
-                <text x="10" y="17" class="route-year-label">${stop.year}</text>
-                <text x="10" y="34" class="route-place-label">${point.label}</text>
-              </g>
-              <text x="${point.x + 10}" y="${point.y + labelYOffset}" class="route-event-label">${mapEvent}</text>
-              <title>${stop.year} · ${point.label}: ${stop.event}</title>
-            </g>
-          `;
-        })
-        .join("")}
-    </svg>
-  `;
+function buildGoogleMapsViewUrl(viewId) {
+  const view = mapViewPresets[viewId] || mapViewPresets.overview;
+  return `https://www.google.com/maps/@?api=1&map_action=map&center=${encodeURIComponent(view.center)}&zoom=${view.zoom}&basemap=roadmap`;
+}
+
+function buildGoogleMapsPrimaryUrl(route, viewId) {
+  if (route.googleAction === "directions") {
+    return buildGoogleMapsDirectionsUrl(route);
+  }
+
+  return buildGoogleMapsViewUrl(viewId);
+}
+
+function buildGoogleMapsDirectionsUrl(route) {
+  const queries = route.stops.map((stop) => mapLocations[stop.location].query);
+  const origin = queries[0];
+  const destination = queries[queries.length - 1];
+  const waypoints = queries.slice(1, -1).slice(0, 7);
+  let url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}&travelmode=driving`;
+
+  if (waypoints.length) {
+    url += `&waypoints=${encodeURIComponent(waypoints.join("|"))}`;
+  }
+
+  return url;
 }
 
 function openRouteModal(stopId) {

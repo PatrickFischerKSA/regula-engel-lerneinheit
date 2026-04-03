@@ -9,7 +9,7 @@ Repository: [PatrickFischerKSA/regula-engel-lerneinheit](https://github.com/Patr
 - build-freie Web-App mit `index.html`, `styles.css` und `app.js`
 - Einstieg zu den Kategorien Ereignis, Kontext und Deutung
 - interaktive Zeitleiste zu Biografie und napoleonischem Umfeld
-- eigenes Kartenmodul mit konkreten Schauplätzen und Reiserouten zwischen Schweiz, Europa, Mittelmeerraum und USA
+- eigenes Kartenmodul mit Google-Maps-Links für konkrete Schauplätze und Reiserouten zwischen Schweiz, Europa, Mittelmeerraum und USA
 - datierte Stationskarten mit Ereigniszeilen und anklickbaren Detailfenstern zu den wichtigsten Vorkommnissen
 - zusätzliche Zoomstufen für Gesamtkarte, Schweiz, Mitteleuropa, Mittelmeer sowie Atlantik/USA
 - optimierte Startseite mit Lehrpersonen-Einstieg, Favicon und Social-Meta-Tags für GitHub Pages

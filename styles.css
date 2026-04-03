@@ -579,105 +579,27 @@ progress::-webkit-progress-value {
   margin-bottom: 14px;
 }
 
-.route-map-frame {
+.google-maps-shell {
+  display: grid;
+  gap: 16px;
+  min-height: 320px;
+  padding: 20px;
   border-radius: 22px;
-  overflow: hidden;
   border: 1px solid rgba(30, 58, 76, 0.1);
-  background: rgba(233, 241, 245, 0.75);
+  background:
+    radial-gradient(circle at top right, rgba(30, 58, 76, 0.08), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(123, 47, 51, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(255, 252, 248, 0.98), rgba(244, 235, 221, 0.94));
 }
 
-.route-map {
-  display: block;
-  width: 100%;
-  height: auto;
+.google-maps-copy {
+  margin: 0;
 }
 
-.map-land path {
-  fill: rgba(212, 191, 160, 0.9);
-  stroke: rgba(105, 86, 56, 0.2);
-  stroke-width: 1.2;
-}
-
-.map-grid line {
-  stroke: rgba(30, 58, 76, 0.06);
-  stroke-width: 1;
-}
-
-.map-water-labels text {
-  font-size: 18px;
-  fill: rgba(30, 58, 76, 0.45);
-  font-style: italic;
-}
-
-.route-line {
-  fill: none;
-  stroke: var(--oxblood);
-  stroke-width: 5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 2 0;
-  filter: drop-shadow(0 6px 12px rgba(123, 47, 51, 0.18));
-}
-
-.route-point circle:first-child {
-  fill: var(--navy);
-  stroke: #fff;
-  stroke-width: 2;
-}
-
-.route-point-halo {
-  fill: rgba(199, 154, 84, 0.18);
-  stroke: none;
-}
-
-.route-point-button {
-  cursor: pointer;
-}
-
-.route-seq-ring {
-  fill: rgba(255, 247, 239, 0.96);
-  stroke: rgba(30, 58, 76, 0.18);
-  stroke-width: 1.5;
-}
-
-.route-seq-label {
-  font-size: 12px;
-  font-weight: 800;
-  fill: var(--navy);
-}
-
-.route-label-card rect {
-  fill: rgba(255, 253, 249, 0.94);
-  stroke: rgba(30, 58, 76, 0.12);
-  stroke-width: 1;
-  box-shadow: var(--shadow-soft);
-}
-
-.route-year-label,
-.route-place-label,
-.route-event-label {
-  paint-order: stroke;
-  stroke: rgba(255, 255, 255, 0.92);
-  stroke-width: 4;
-  stroke-linejoin: round;
-}
-
-.route-year-label {
-  font-size: 12px;
-  font-weight: 800;
-  fill: var(--oxblood);
-}
-
-.route-place-label {
-  font-size: 12px;
-  font-weight: 700;
-  fill: var(--ink);
-}
-
-.route-event-label {
-  font-size: 12px;
-  font-weight: 700;
-  fill: rgba(27, 36, 48, 0.88);
+.google-maps-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .route-note {
@@ -727,6 +649,9 @@ progress::-webkit-progress-value {
 }
 
 .route-stop-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 8px;
 }
 
