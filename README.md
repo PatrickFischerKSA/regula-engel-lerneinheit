@@ -13,6 +13,7 @@ Repository: [PatrickFischerKSA/regula-engel-lerneinheit](https://github.com/Patr
 - datierte Stationskarten mit Ereigniszeilen und anklickbaren Detailfenstern zu den wichtigsten Vorkommnissen
 - zusätzliche Zoomstufen für Gesamtkarte, Schweiz, Mitteleuropa, Mittelmeer sowie Atlantik/USA
 - optimierte Startseite mit Lehrpersonen-Einstieg, Favicon und Social-Meta-Tags für GitHub Pages
+- zusätzliches PNG-Social-Preview für robustes Sharing auf Plattformen mit eingeschränkter SVG-Unterstützung
 - Quellen-Lab mit Vergleich von Memoiren, Lexikon, Journalismus, Museum und Überlieferung
 - eigenes Modul zur historischen Einbettung:
   - Schweizer Soldwesen
