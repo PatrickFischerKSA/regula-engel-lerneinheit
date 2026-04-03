@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regula Engel-Egli: Zwischen Kindersegen, Krieg und Erinnerung</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero panel">
+      <div class="hero-copy">
+        <p class="eyebrow">Volldigitale Lerneinheit</p>
+        <h1>Regula Engel-Egli: Zwischen Kindersegen, Krieg und Erinnerung</h1>
+        <p class="lead">
+          Eine interaktive Lernstrecke zu Regula Engel-Egli als Memoirenschreiberin, Offiziersfrau,
+          Zeitzeugin der napoleonischen Kriege und Figur der Schweizer Erinnerungskultur.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#warmup">Jetzt starten</a>
+          <a class="btn ghost" href="#reflexion">Direkt zur Reflexion</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel panel">
+        <p class="eyebrow">Lernstand</p>
+        <div class="stats-grid">
+          <article class="stat">
+            <span class="stat-label">Module</span>
+            <strong id="completed-modules">0 / 7</strong>
+          </article>
+          <article class="stat">
+            <span class="stat-label">Merksätze</span>
+            <strong id="saved-insights">0</strong>
+          </article>
+          <article class="stat">
+            <span class="stat-label">Quiz</span>
+            <strong id="quiz-score">offen</strong>
+          </article>
+        </div>
+        <div class="progress-block">
+          <label for="overall-progress">Gesamtfortschritt</label>
+          <progress id="overall-progress" max="100" value="0"></progress>
+        </div>
+        <div class="mini-note">
+          <strong>Leitfrage</strong>
+          <p>
+            Wie lässt sich Regula Engel-Egli zugleich als historische Person, als Selbstinszenierung
+            in den Memoiren und als spätere Erinnerungsfigur lesen?
+          </p>
+        </div>
+      </aside>
+    </header>
+
+    <nav class="rail panel">
+      <a href="#warmup">1. Einstieg</a>
+      <a href="#timeline">2. Lebensweg</a>
+      <a href="#karten">3. Kartenraum</a>
+      <a href="#quellen">4. Quellen-Lab</a>
+      <a href="#kontext">5. Historische Einbettung</a>
+      <a href="#deutung">6. Deutungs-Labor</a>
+      <a href="#quiz">7. Abschluss-Check</a>
+      <a href="#reflexion">8. Reflexion</a>
+    </nav>
+
+    <main class="content">
+      <section class="panel section-intro">
+        <div class="section-header">
+          <p class="section-kicker">Orientierung</p>
+          <h2>Worum es in dieser Einheit geht</h2>
+        </div>
+        <div class="intro-grid">
+          <article class="info-card">
+            <h3>Historisch</h3>
+            <p>Regula Engel-Egli lebte zwischen Schweizer Soldwesen, Französischer Revolution und napoleonischen Kriegen.</p>
+          </article>
+          <article class="info-card">
+            <h3>Methodisch</h3>
+            <p>Du vergleichst Selbstzeugnis, Lexikon, Museum, Journalismus und spätere Publikationsgeschichte.</p>
+          </article>
+          <article class="info-card">
+            <h3>Didaktisch</h3>
+            <p>Die Einheit verbindet Biografie, Quellenkritik, Geschlechtergeschichte und historische Einbettung.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="module panel" id="warmup">
+        <div class="section-header">
+          <p class="section-kicker">Modul 1</p>
+          <h2>Einstieg: Was ist Ereignis, Kontext oder Deutung?</h2>
+          <p>
+            Ordne die Aussagen zu. So wird sichtbar, dass historisches Lernen hier nicht nur aus Daten,
+            sondern auch aus Perspektiven besteht.
+          </p>
+        </div>
+        <div id="warmup-list" class="warmup-list"></div>
+      </section>
+
+      <section class="module panel" id="timeline">
+        <div class="section-header">
+          <p class="section-kicker">Modul 2</p>
+          <h2>Interaktive Zeitleiste</h2>
+          <p>
+            Öffne die Stationen ihres Lebenswegs und markiere, welche Phasen ihre Geschichte besonders
+            stark geprägt haben.
+          </p>
+        </div>
+        <div id="timeline-cards" class="timeline-grid"></div>
+      </section>
+
+      <section class="module panel" id="karten">
+        <div class="section-header">
+          <p class="section-kicker">Modul 3</p>
+          <h2>Schauplätze und Reiserouten</h2>
+          <p>
+            Regula Engel-Eglis Geschichte ist eine Geschichte ständiger Bewegung. Wechsle zwischen
+            den großen Reisephasen und verfolge Orte, Richtungen und Entfernungen auf der Karte.
+          </p>
+        </div>
+        <div class="route-switch" id="route-switch"></div>
+        <div id="route-stage" class="route-stage"></div>
+      </section>
+
+      <section class="module panel" id="quellen">
+        <div class="section-header">
+          <p class="section-kicker">Modul 4</p>
+          <h2>Quellen-Lab</h2>
+          <p>
+            Wechsle zwischen verschiedenen Quellentypen. Jede Perspektive zeigt eine andere Regula Engel:
+            Augenzeugin, Figur der Geschichtsschreibung, Medienfigur oder Erinnerungsort.
+          </p>
+        </div>
+        <div class="lens-switch" id="lens-switch"></div>
+        <div id="source-cards" class="source-cards"></div>
+      </section>
+
+      <section class="module panel" id="kontext">
+        <div class="section-header">
+          <p class="section-kicker">Modul 5</p>
+          <h2>Historische Einbettung</h2>
+          <p>
+            Regula Engel-Egli wird erst verständlich, wenn man Schweizer Soldwesen, Frauen im Kriegsraum,
+            Napoleons Aufstieg und Erinnerungskultur zusammendenkt.
+          </p>
+        </div>
+        <div class="context-switch" id="context-switch"></div>
+        <div id="context-stage" class="context-stage"></div>
+      </section>
+
+      <section class="module panel" id="deutung">
+        <div class="section-header">
+          <p class="section-kicker">Modul 6</p>
+          <h2>Deutungs-Labor</h2>
+          <p>
+            Entscheide dich jeweils für die stimmigste Deutung. Die Rückmeldungen helfen dir, zwischen
+            Faszination, Quellenkritik und historischer Einordnung zu unterscheiden.
+          </p>
+        </div>
+        <div class="scenario-tabs" id="scenario-tabs"></div>
+        <div id="scenario-stage" class="scenario-stage"></div>
+      </section>
+
+      <section class="module panel" id="quiz">
+        <div class="section-header">
+          <p class="section-kicker">Modul 7</p>
+          <h2>Abschluss-Check</h2>
+          <p>Prüfe dein Verständnis. Die Rückmeldungen erklären jeweils, warum eine Antwort historisch tragfähig ist.</p>
+        </div>
+        <form id="quiz-form" class="quiz-form"></form>
+        <div class="quiz-actions">
+          <button class="btn primary" id="quiz-submit" type="button">Quiz auswerten</button>
+          <button class="btn ghost" id="quiz-reset" type="button">Quiz zurücksetzen</button>
+        </div>
+        <div id="quiz-feedback" class="quiz-feedback" aria-live="polite"></div>
+      </section>
+
+      <section class="module panel" id="reflexion">
+        <div class="section-header">
+          <p class="section-kicker">Modul 8</p>
+          <h2>Reflexion und Export</h2>
+          <p>
+            Sichere Merksätze, formuliere eine eigene Deutung und exportiere deine Ergebnisse als
+            Markdown-Datei.
+          </p>
+        </div>
+
+        <div class="reflection-grid">
+          <article class="reflection-card panel">
+            <h3>Gesammelte Merksätze</h3>
+            <p class="muted">
+              Merksätze aus Quellen, Kontext und Deutungs-Labor landen hier und können in den Export
+              übernommen werden.
+            </p>
+            <ul id="insight-list" class="insight-list"></ul>
+          </article>
+
+          <article class="reflection-card panel">
+            <h3>Eigene Auswertung</h3>
+            <label for="reflection-main">Wie verändert sich dein Bild von Regula Engel-Egli, wenn du Memoirentext und historische Einordnung zusammennimmst?</label>
+            <textarea id="reflection-main" rows="7" placeholder="Schreibe 5 bis 8 Sätze zur Leitfrage."></textarea>
+
+            <label for="reflection-transfer">Welche Chancen und Grenzen haben Selbstzeugnisse für den Geschichtsunterricht?</label>
+            <textarea id="reflection-transfer" rows="6" placeholder="Formuliere einen methodischen Transfer in 3 bis 5 Sätzen."></textarea>
+
+            <div class="reflection-actions">
+              <button class="btn primary" id="save-reflection" type="button">Antworten speichern</button>
+              <button class="btn ghost" id="export-markdown" type="button">Als Markdown exportieren</button>
+              <button class="btn subtle" id="reset-progress" type="button">Lernstand löschen</button>
+            </div>
+            <div id="reflection-status" class="status-text" aria-live="polite"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel source-panel">
+        <div class="section-header">
+          <p class="section-kicker">Quellengrundlage</p>
+          <h2>Verwendete Materialien</h2>
+        </div>
+        <ul class="source-list">
+          <li>Bereitgestelltes PDF: <code>RegulaEngelFrauOberstEngel.pdf</code> mit der Limmat-Ausgabe von <em>Frau Oberst Engel</em>.</li>
+          <li><a href="https://de.wikipedia.org/wiki/Regula_Engel-Egli" target="_blank" rel="noreferrer">Wikipedia: Regula Engel-Egli</a></li>
+          <li><a href="https://blog.nationalmuseum.ch/2021/02/regula-engel-egli-kindersegen-im-schlachtengetuemmel/" target="_blank" rel="noreferrer">Schweizerisches Nationalmuseum: Kindersegen im Schlachtengetümmel</a></li>
+          <li><a href="https://www.srf.ch/kultur/gesellschaft-religion/offiziersgattin-regula-engel-die-schweizer-amazone-die-an-napoleons-seite-kaempfte" target="_blank" rel="noreferrer">SRF Kultur: Die Schweizer «Amazone»</a></li>
+          <li><a href="https://raetischesmuseum.app/extras/regula-engel-eine-frau-im-gefolge-napoleons?tour=/tours/zeitreise-durch-die-buendner-geschichte&object=/objects/das-geschaeft-mit-den-soeldnern" target="_blank" rel="noreferrer">Rätisches Museum: Regula Engel im Gefolge Napoleons</a></li>
+          <li><a href="https://hls-dhs-dss.ch/de/articles/031794/2004-10-25/" target="_blank" rel="noreferrer">Historisches Lexikon der Schweiz: Regula Engel</a></li>
+          <li><a href="https://www.viceversalitterature.ch/book/18714" target="_blank" rel="noreferrer">Viceversa Literatur: bibliografischer Eintrag</a></li>
+          <li><a href="https://doi.org/10.3931/e-rara-61572" target="_blank" rel="noreferrer">e-rara: digitalisierte Ausgabe von <em>Die schweizerische Amazone</em></a></li>
+          <li><a href="https://www.napoleon.org/en/history-of-the-two-empires/articles/napoleons-courtesans-citoyennes-and-cantinieres/" target="_blank" rel="noreferrer">Napoleon.org: Frauen, Citoyennes und Cantinières</a></li>
+          <li><a href="https://www.britannica.com/question/How-did-the-Napoleonic-Wars-end" target="_blank" rel="noreferrer">Britannica: Ende der napoleonischen Kriege</a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <div class="route-modal" id="route-modal" hidden aria-hidden="true">
+    <div class="route-modal-backdrop" data-route-modal-close="true"></div>
+    <div class="route-modal-dialog panel" role="dialog" aria-modal="true" aria-labelledby="route-modal-title">
+      <button class="route-modal-close" type="button" id="route-modal-close" aria-label="Detailfenster schließen">Schließen</button>
+      <p class="card-kicker" id="route-modal-kicker">Routenstation</p>
+      <h3 id="route-modal-title">Ort</h3>
+      <p class="route-modal-meta" id="route-modal-meta"></p>
+      <div class="route-modal-body" id="route-modal-body"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
